@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%% beamerouterthemeIST.sty %%%%%%%%%%%%%%%%%%%%%%
+%                                                                    %
+%  Part of beamer theme style "beamerthemeIST.sty"                   %
+%  for Instituto Superior Técnico corporate identity                 %
+%                                                                    %
+%       Andre C. Marta                                               %
+%       Area Cientifica de Mecanica Aplicada e Aeroespacial          %
+%       Departamento de Engenharia Mecanica                          %
+%       Instituto Superior Tecnico                                   %
+%       Av. Rovisco Pais                                             %
+%       1049-001 Lisboa                                              %
+%       Portugal                                                     %
+%       Tel: +351 21 841 9469                                        %
+%                        3469 (extension)                            %
+%       Email: andre.marta@tecnico.ulisboa.pt                        %
+%                                                                    %
+%  Created:       Jan 12, 2023                                       %
+%  Last Modified: Jan 12, 2023                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OUTER
+%
+% Default slide decorations, such as text and graphics that appear
+% in a slide header and footer sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See theme templates in directory
+% /usr/share/texmf/tex/latex/beamer/base/themes/outer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{beamerouterthemeIST}
+
+\mode<presentation>
+
+%---------------------------------------------------------------------
+% Mini frames
+
+%\setbeamertemplateparent{mini frames}...
+%\setbeamertemplate{mini frame}...
+%\setbeamertemplate{mini frame in current subsection}...
+%\setbeamertemplate{mini frame in other subsection}...
+
+%---------------------------------------------------------------------
+% Navigation symbols
+
+\setbeamertemplate{navigation symbols}{} % disable navigation icons
+
+%---------------------------------------------------------------------
+% Section and subsections in head/foot
+
+%\setbeamertemplate{section in head/foot}...
+%\setbeamertemplate{section in head/foot shaded}...
+%\setbeamertemplate{subsection in head/foot}...
+%\setbeamertemplate{subsection in head/foot shaded}...
+%\setbeamertemplate{subsubsection in head/foot}...
+%\setbeamertemplate{subsubsection in head/foot shaded}...
+
+%---------------------------------------------------------------------
+% Headline and footline
+
+\defbeamertemplate*{footline}{IST theme}
+{
+  \leavevmode%
+%  \begin{beamercolorbox}[colsep=0.5pt]{upper separation line foot}
+%  \end{beamercolorbox} %
+%  \vskip-3pt%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle %
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{} \hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} %
+  \end{beamercolorbox}%
+  }
+%  \vskip-3pt%
+%  \begin{beamercolorbox}[colsep=0.5pt]{lower separation line foot}
+%  \end{beamercolorbox}
+}
+
+\defbeamertemplate*{headline}{IST theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%---------------------------------------------------------------------
+% Background
+% (overlaps \setbeamercolor{normal text}{bg=<color>} in font theme)
+
+%\setbeamertemplate{background}...
+%\setbeamertemplate{background}[grid][step=5mm,color=blue] % grid on the background
+%\setbeamertemplate{background canvas}...
+%\setbeamertemplate{background canvas}[vertical shading][bottom=red!20,top=yellow!30] % gradient colors in the background
+%\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{alps.jpg}} % background image (slide aspect ration 4:3)
+
+%---------------------------------------------------------------------
+% Sidebar
+
+%\setbeamertemplate{sidebar left}...
+%\setbeamertemplate{sidebar right}...
+%\setbeamertemplate{sidebar canvas left}...
+%\setbeamertemplate{sidebar canvas right}...
+
+%---------------------------------------------------------------------
+% Frame title
+
+%\setbeamertemplate{frametitle}...
+
+% Frame title continuations
+%\setbeamertemplate{frametitle continuation}...
+
+%---------------------------------------------------------------------
+% Notes
+
+%\setbeamertemplate{note page}...
+
+%---------------------------------------------------------------------
+% Margins (extra acm)
+
+% The size of a Beamer slide is 128mm by 96mm and should not be changed.
+% It is permissible, however, to change the widths of the left and right margins.
+% These are set to 1cm by default.
+
+\setbeamersize{text margin left=2em,text margin right=2em}
+
+\mode<all>

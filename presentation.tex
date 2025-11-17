@@ -1,0 +1,373 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% slides.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                    %
+%  Beamer template for slideshow presentations                       %
+%                                                                    %
+%       Andre C. Marta                                               %
+%       Area Cientifica de Mecanica Aplicada e Aeroespacial          %
+%       Departamento de Engenharia Mecanica                          %
+%       Instituto Superior Tecnico                                   %
+%       Av. Rovisco Pais                                             %
+%       1049-001 Lisboa                                              %
+%       Portugal                                                     %
+%       Tel: +351 21 841 9469                                        %
+%                        3469 (extension)                            %
+%       Email: andre.marta@tecnico.ulisboa.pt                        %
+%                                                                    %
+%  Created:       Jan 12, 2023                                       %
+%  Last Modified: Jan 12, 2023                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This document uses:                                                %
+% - LaTeX style "beamer.sty",                                        %
+% - Beamer theme "beamerthemeIST.sty" (custom developed)             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer class options:                                              %
+%                                                                    %
+%   slidestop    - puts frame titles on the top left corner          %
+%   compress     - makes all navigation bars as small as possible    %
+%   blue,red,brown,baclandwhite - navigation bars and titles color   %
+%   (default),handout, trans,notes=hide,show,only - pdf screen       %
+%                 (128mmx96mm), pdf handout, pdf transparency, notes %
+%   hyperref={bookmarks=false} - remove bookmarks                    %
+%   (sans),sefif - text fonts                                        %
+%   (mathsans), mathserif - math fonts                               %
+%   8pt,9pt,10pt,(11pt),12pt,14pt,17pt,20pt - default font size      %
+%   t,(c,)b      - vertical aligment for the entire document         %
+%   draft        - show only figure place holders                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{beamer}
+\mode<presentation> {
+  % Beamer theme - user-definable (fonts,colors,decorations,...)
+  \usetheme{IST} % beamerthemeIST.sty
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load additional LaTeX packages
+
+% Mathematical typesetting from the American Mathematical Society
+\usepackage{amssymb,amsmath}
+
+% Working with graphics with PDF LaTeX: using the graphicx package to
+% incorporate graphics in pdf, jpg or png formats.
+\usepackage{graphicx}  % Enhanced LaTeX Graphics
+
+% Ac­cept dif­fer­ent in­put en­cod­ings
+% http://www.ctan.org/pkg/inputenc
+\usepackage[utf8]{inputenc} % supports portuguese keyboard in Linux
+
+%% Access bold symbols in math mode. 
+%% http://www.ctan.org/tex-archive/help/Catalogue/entries/bm.html
+\usepackage{bm}
+
+% Full bib­li­og­ra­phy en­tries in the main text of a document
+% http://www.ctan.org/pkg/bibentry
+\usepackage{bibentry}
+\nobibliography*
+\renewcommand{\newblock}{}
+
+% Redefine footnotesize (used for bibliographic references)
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+% Display a grid to help align images
+%\beamertemplategridbackground[1cm]
+
+% Display logo in frame title
+\usepackage{textpos}
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(.9\textwidth,-8mm)
+\includegraphics[height=7mm]{figures/IST_A_gray_bg_crop.jpg}
+\end{textblock*}}
+
+%\logo{\includegraphics[height=0.8cm]{figures/IST_A_gray_bg_crop.jpg}\vspace{200pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title, authors, affiliation and date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Enhancing Semantic Search]{Enhancing Semantic Search with Retrieval-Augmented Generation and Agentic AI}
+
+\author[Francisco Azeredo]{Francisco Azeredo}
+
+\titlegraphic{\includegraphics[height=8mm]{figures/IST_A_white_bg_crop.jpg}}
+
+\institute[IST]{Instituto Superior T\'{e}cnico, Universidade de Lisboa}
+
+\date[Thesis Defense]{MSc Thesis Defense}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frame options
+%
+%  plain            - supress drawing of header and footer decorations
+%  containsverbatim - use verbatim environment and \verb command
+%  allowframebreaks - automatic split of frames
+%  shrink           - shrink the contents to fit in a single slide
+%  squeeze          - squeeze vertical space
+%  t,(c,)b          - top, center, bottom vertical alignment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain] % supress drawing of header and footer decorations
+  \titlepage
+\end{frame}
+
+% Reset page counter to exclude title page
+\addtocounter{framenumber}{-1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (No automatic outline frames; custom outline slide later)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------------------------------------------------------------
+% INTRODUCTION
+%--------------------------------------------------------------------
+\section{Objectives \\ \& Outline}
+
+\begin{frame}{Presentation Outline}
+\begin{enumerate}
+  \item Problem \& Motivation
+  \item Objectives
+  \item System Architecture
+  \item Evaluation \& Results
+  \item Conclusions \& Future Work
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Research Problem}
+\begin{block}{Core Challenge}
+How to handle \textbf{interdependent information} in enterprise settings where information is \textbf{dynamic} and later reports can nullify earlier ones?
+\end{block}
+\vspace{0.5em}
+\textbf{Key gaps in existing solutions:}
+\begin{itemize}
+  \item Keyword search ignores semantic meaning and document structure
+  \item Naive RAG retrieves isolated information without considering dependencies
+  \item Cannot track how information relates to, updates, or contradicts each other
+  \item No standard tools for agents to traverse information relationships
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Thesis Objectives}
+\textbf{Main goal:} Handle information interdependencies through graph-based agentic reasoning.
+\vspace{0.5em}
+
+\textbf{Specific objectives:}
+\begin{enumerate}
+  \item Design a schema that captures enterprise document structure and relationships
+  \item Implement GraphRAG: knowledge graph construction from document corpus
+  \item Develop agentic graph traversal for multi-hop reasoning over dependencies
+  \item Create an MCP server for standardized agent-database interaction
+  \item Evaluate against naive RAG on enterprise-like scenarios
+\end{enumerate}
+\end{frame}
+
+\section{Problem \\ \& Motivation}
+
+\begin{frame}{Motivation: Why Corporate Search Fails}
+\textbf{Traditional keyword search limitations:}
+\begin{itemize}
+  \item Cannot capture context, semantics, or document structure
+  \item Users must guess exact terms and file locations
+  \item Ignores relationships between information pieces
+\end{itemize}
+\vspace{0.5em}
+\textbf{Naive RAG limitations in enterprise settings:}
+\begin{itemize}
+  \item Retrieves relevant information but \textbf{ignores interdependencies}
+  \item Cannot detect when newer reports nullify or update older information
+  \item Treats information store as static, missing \textbf{dynamic information flow}
+  \item High risk: outdated or contradicted information in critical decisions
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Document Interdependency Problem}
+\textbf{Example scenario:}
+\begin{itemize}
+  \item \textbf{Report A (Jan 2024):} "Vendor X approved for contracts up to \$100K"
+  \item \textbf{Report B (Mar 2024):} "Vendor X approval suspended due to audit"
+  \item \textbf{Query (Apr 2024):} "Can we contract with Vendor X?"
+\end{itemize}
+\vspace{0.5em}
+\textbf{Naive RAG problem:}
+\begin{itemize}
+  \item May retrieve Report A (highly relevant to query)
+  \item Misses that Report B nullifies Report A
+  \item Returns \textbf{accurate but outdated} information $\rightarrow$ incorrect answer
+\end{itemize}
+\vspace{0.3em}
+\textbf{Solution needed:} Graph-based reasoning to traverse information relationships
+\end{frame}
+
+\section{Architecture}
+
+\begin{frame}{System Architecture Overview}
+\textbf{Three-layer architecture:}
+\begin{enumerate}
+  \item \textbf{Processing:} OCR, chunking, embeddings, metadata extraction
+  \item \textbf{Storage:} Vector database (Weaviate) + Knowledge graph for information relationships
+  \item \textbf{Reasoning:} ReAct agent with schema-aware tools (MCP)
+\end{enumerate}
+\begin{center}
+  \includegraphics[width=0.75\linewidth]{Images/Fluxograma_Data_Processing_Pipeline.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Schema-Aware Data Model}
+\textbf{Six core classes model enterprise document structure:}
+\begin{itemize}
+  \item \textbf{Fluxo} (Workflow), \textbf{Etapa} (Step): process structure
+  \item \textbf{Entidade} (Entity): companies, people, products
+  \item \textbf{Pasta} (Folder), \textbf{Ficheiro} (File), \textbf{Metadados} (Metadata)
+\end{itemize}
+\vspace{0.3em}
+\textbf{Key benefit:} Cross-references enable both semantic search \textit{and} deterministic multi-hop traversal.
+\begin{center}
+  \includegraphics[width=0.7\linewidth]{Images/Classe UML.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Knowledge Graph Construction (MiniRAG)}
+\textbf{Lightweight GraphRAG implementation:}
+\begin{itemize}
+  \item LLM extracts key entity words from document chunks
+  \item Nodes with matching entity words are merged
+  \item Creates graph structure connecting related information
+  \item Requires supervision but aids in processing large document sets
+\end{itemize}
+\vspace{0.3em}
+\textbf{Goal:} Facilitate discovery of information relationships across documents through entity-based graph structure.
+\begin{center}
+  \includegraphics[width=0.5\linewidth]{Images/graph_visualisation_big.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Agentic Graph Traversal (Mini Query Mode)}
+\textbf{Multi-hop reasoning over knowledge graph:}
+\begin{enumerate}
+  \item Extract entities and temporal context from query
+  \item Retrieve relevant information via vector search
+  \item \textbf{Traverse graph} to find related/updating information
+  \item Build context considering dependencies and temporal order
+  \item Generate answer from complete, up-to-date evidence
+\end{enumerate}
+\begin{center}
+  \includegraphics[width=0.65\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Weaviate MCP Server: Agent-Database Bridge}
+\textbf{Model Context Protocol (MCP) standardizes agent tool interfaces.}
+
+\textbf{Our contribution:} First MCP server for Weaviate
+\begin{itemize}
+  \item Exposes tools: \texttt{weaviate-query}, \texttt{weaviate-follow-ref}, etc.
+\end{itemize}
+\begin{center}
+  \includegraphics[width=0.6\linewidth]{Images/Sequence-diagram-Weaviate-Query.png}
+\end{center}
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Results: Retrieval Performance}
+\textbf{Experiment:} Single-collection retrieval on enterprise-like dataset
+\vspace{0.5em}
+
+\textbf{Key findings:}
+\begin{itemize}
+  \item \textbf{Agentic RAG}: 60.4\% retrieval rate, 61\% correct answers
+  \item Outperforms all baselines by large margin (2-4×)
+  \item Agentic approach combines multi-step reasoning with hybrid search
+\end{itemize}
+\begin{center}
+  % Single-collection retrieval and answer quality
+  \input{tables_and_code/table_document_retrieved_metrics.tex}
+\end{center}
+\footnotesize{``Correct Answers'' = answers passing Youden-optimized quality threshold}
+\end{frame}
+
+\begin{frame}{Results: Multi-Collection Retrieval}
+\textbf{Experiment:} Retrieval across heterogeneous document collections
+\vspace{0.5em}
+
+\textbf{Key findings:}
+\begin{itemize}
+  \item Agent successfully selects appropriate collection for each query
+  \item All agentic methods outperform naive baseline (2-3×)
+  \item Different strategies (REST API, LexRank, DOCX) suit different content
+\end{itemize}
+\begin{center}
+  % Mixed-documents retrieval metrics
+  \input{tables_and_code/table_documents_mixed.tex}
+\end{center}
+\footnotesize{Demonstrates generalization to diverse document types and sources}
+\end{frame}
+
+\section{Conclusions \& Future Work}
+
+\begin{frame}{Main Contributions}
+\begin{enumerate}
+  \item \textbf{Problem identification:} Formalized the information interdependency challenge in enterprise semantic search
+  \item \textbf{GraphRAG architecture:} Schema-aware system capturing information relationships, updates, and temporal dependencies
+  \item \textbf{Agentic graph traversal:} Multi-hop reasoning framework to handle dynamic information and nullification
+  \item \textbf{MCP server:} First standardized tool for agents to query Weaviate with schema validation
+  \item \textbf{Evaluation:} Demonstrated 2-4× improvement over naive RAG on enterprise scenarios
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Conclusions}
+\begin{itemize}
+  \item \textbf{GraphRAG with agentic traversal} handles information interdependencies that naive RAG cannot (60\% vs 14-34\% retrieval accuracy)
+  \item \textbf{Multi-hop reasoning} over knowledge graphs enables tracking how information updates, supersedes, or contradicts earlier information
+  \item Successfully addresses \textbf{dynamic information storage} problem in enterprise settings
+  \item MCP server provides standardized, validated access to Weaviate for any LLM agent
+  \item Demonstrates importance of \textbf{information structure and relationships} beyond semantic similarity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Limitations \& Challenges}
+\textbf{Experimental limitations:}
+\begin{itemize}
+  \item Computational and budget constraints limited scale of experiments
+  \item No public benchmark exists for structure-aware enterprise retrieval
+\end{itemize}
+\vspace{0.5em}
+\textbf{Open challenges:}
+\begin{itemize}
+  \item LLM hallucinations not fully eliminated (though greatly reduced)
+  \item Privacy and security considerations in enterprise deployment
+  \item Scalability to millions of information pieces requires further optimization
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Future Work}
+\begin{itemize}
+  \item Evaluate stronger models and longer context windows.
+  \item Develop public benchmarks for structure-aware retrieval.
+  \item Explore advanced reasoning (multi-agent, graph reasoning, GraphRAG).
+  \item Integrate with enterprise systems and enforce ACLs at scale.
+  \item Scale to millions of information pieces with optimized graph traversal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Thank You}
+\begin{center}
+  \begin{block}{\LARGE Thank you!}
+  \end{block}
+  \vspace{1em}
+  Francisco Azeredo\\
+  Instituto Superior T\'ecnico\\
+  \vspace{0.5em}
+  Questions?
+\end{center}
+\end{frame}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

@@ -1,0 +1,187 @@
+%%%%%%%%%%%%%%%%%%%%%%% beamerfontthemeIST.sty %%%%%%%%%%%%%%%%%%%%%%%
+%                                                                    %
+%  Part of beamer theme style "beamerthemeIST.sty"                   %
+%  for Instituto Superior Técnico corporate identity                 %
+%                                                                    %
+%       Andre C. Marta                                               %
+%       Area Cientifica de Mecanica Aplicada e Aeroespacial          %
+%       Departamento de Engenharia Mecanica                          %
+%       Instituto Superior Tecnico                                   %
+%       Av. Rovisco Pais                                             %
+%       1049-001 Lisboa                                              %
+%       Portugal                                                     %
+%       Tel: +351 21 841 9469                                        %
+%                        3469 (extension)                            %
+%       Email: andre.marta@tecnico.ulisboa.pt                        %
+%                                                                    %
+%  Created:       Jan 12, 2023                                       %
+%  Last Modified: Jan 12, 2023                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONT
+%
+% Defines the default font shapes and sizes of various elements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See theme templates in directory
+% /usr/share/texmf/tex/latex/beamer/base/themes/font
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{beamerfontthemeIST}
+
+\mode<presentation>
+
+%---------------------------------------------------------------------
+% IST official font (if installed)
+\IfFileExists{klavika.sty}
+   {\pdfmapfile{+zkv.map}\usepackage{klavika}}
+   {\message{Package klavika.sty was not found.}}
+
+%---------------------------------------------------------------------
+% Text font (in main body of the slide, excludes header and footer)
+
+%\setbeamerfont{normal text}{} % ignored currently
+%\setbeamerfont{alerted text}{} % \alert{text}
+%\setbeamerfont{example text}{}
+
+% Overall font of presentation
+% (affects many items, including slide title, header, footer, bullets and navigation icons)
+
+%\setbeamerfont{structure}{} % \structure{text}
+%\setbeamerfont{structure}{family=\rmfamily,series=\bfseries,shape=\itshape}
+%\setbeamerfont{tiny structure}{size=\tiny}
+
+%---------------------------------------------------------------------
+% Title, subtitle, author, institute and date fonts
+
+\setbeamerfont{title}{size=\large}
+%\setbeamerfont{title in head/foot}{size=\tiny}
+%\setbeamerfont{title in sidebar}{size=\tiny}
+
+%\setbeamerfont{subtitle}{size=\normalsize,parent=title}
+
+%\setbeamerfont{author}{}
+%\setbeamerfont{author in head/foot}{size=\tiny} % acm
+%\setbeamerfont{author in sidebar}{size=\tiny}
+
+%\setbeamerfont{institute}{}
+%\setbeamerfont{institute in head/foot}{size=\tiny}
+%\setbeamerfont{institute in sidebar}{size=\tiny}
+
+%\setbeamerfont{date}{}
+\setbeamerfont{date}{size=\tiny}
+%\setbeamerfont{date in head/foot}{size=\tiny}
+%\setbeamerfont{date in sidebar}{size=\tiny}
+
+%---------------------------------------------------------------------
+% Part, section, subsection, subsubsection fonts
+
+%\setbeamerfont{part name}{size=\LARGE}
+%\setbeamerfont{part title}{size=\LARGE,parent=title}
+
+%\setbeamerfont{section name}{size=\Large}
+%\setbeamerfont{section title}{size=\Large,parent=title}
+
+\setbeamerfont{section in toc}{size=\large,parent=structure}
+%\setbeamerfont{section in toc shaded}{parent=section in toc}
+%\setbeamerfont{section in head/foot}{}
+%\setbeamerfont{section in sidebar}{size=\tiny}
+\setbeamerfont{section number projected}{size=\small,parent={section in toc,projected text}}
+
+%\setbeamerfont{subsection name}{size=\large}
+%\setbeamerfont{subsection title}{size=\large,parent=title}
+
+%\setbeamerfont{subsection in toc}{}
+%\setbeamerfont{subsection in toc shaded}{}
+%\setbeamerfont{subsection in head/foot}{}
+%\setbeamerfont{subsection in sidebar}{}
+
+%\setbeamerfont{subsubsection in toc}{}
+%\setbeamerfont{subsubsection in toc shaded}{}
+%\setbeamerfont{subsubsection in head/foot}{}
+%\setbeamerfont{subsubsection in sidebar}{}
+
+%---------------------------------------------------------------------
+% Headline and footline fonts
+
+%\setbeamerfont{headline}{parent={tiny structure}}
+%\setbeamerfont{footline}{parent={tiny structure}}
+
+%---------------------------------------------------------------------
+% Sidebar fonts
+
+%\setbeamerfont{sidebar}{size=\Tiny,parent={tiny structure}}
+%\setbeamerfont{sidebar left}{parent=sidebar}
+%\setbeamerfont{sidebar right}{parent=sidebar}
+
+%---------------------------------------------------------------------
+% Frame title and subtitle fonts
+
+%\setbeamerfont{frametitle}{parent=structure,size=\Large}
+%\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+
+%---------------------------------------------------------------------
+% Caption fonts
+
+%\setbeamerfont{caption}{size=\small}
+%\setbeamerfont{caption name}{parent={structure,caption}}
+
+%---------------------------------------------------------------------
+% Navigation buttons fonts
+
+%\setbeamerfont{button}{size=\tiny}
+
+%---------------------------------------------------------------------
+% Block body and title fonts
+% \begin{block}...\end{block} environment
+
+\setbeamerfont{block body}{size=\small}
+%\setbeamerfont{block body alerted}{}
+%\setbeamerfont{block body example}{}
+\setbeamerfont{block title}{size=\large,parent={structure,block body}}
+%\setbeamerfont{block title alerted}{parent={block title,alerted text}}
+%\setbeamerfont{block title example}{parent={block title,example text}}
+
+%---------------------------------------------------------------------
+% List fonts
+
+%\setbeamerfont{item}{parent=structure}
+%\setbeamerfont{subitem}{parent=item}
+%\setbeamerfont{subsubitem}{parent=subitem}
+
+%\setbeamerfont{item projected}{size=\tiny,parent={item,projected text}}
+%\setbeamerfont{subitem projected}{parent=item projected}
+%\setbeamerfont{subsubitem projected}{parent=subitem projected}
+
+%\setbeamerfont{itemize item}{parent=item}
+%\setbeamerfont{itemize subitem}{parent=subitem}
+%\setbeamerfont{itemize subsubitem}{parent=subsubitem}
+
+%\setbeamerfont{itemize}{size=\normalsize}
+%\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+%\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+
+%\setbeamerfont{enumerate item}{parent=item}
+%\setbeamerfont{enumerate subitem}{parent=subitem}
+%\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
+
+%\setbeamerfont{itemize/enumerate body}{}
+%\setbeamerfont{itemize/enumerate subbody}{size=\small}
+%\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+%\setbeamerfont{description item}{parent=item}
+
+%---------------------------------------------------------------------
+% Other environments fonts
+
+%\setbeamerfont{projected text}{parent={tiny structure}}
+
+%\setbeamerfont{abstract}{size=\small}
+%\setbeamerfont{abstract title}{parent={abstract,structure},size=\normalsize}
+
+%\setbeamerfont{verse}{family=\rmfamily,shape=\itshape}
+
+%\setbeamerfont{quotation}{shape=\itshape}
+%\setbeamerfont{quote}{parent=quotation}
+
+%\setbeamerfont{note page}{size=\small}
+
+\mode<all>

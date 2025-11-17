@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%% beamercolorthemeIST.sty %%%%%%%%%%%%%%%%%%%%%%
+%                                                                    %
+%  Part of beamer theme style "beamerthemeIST.sty"                   %
+%  for Instituto Superior Técnico corporate identity                 %
+%                                                                    %
+%       Andre C. Marta                                               %
+%       Area Cientifica de Mecanica Aplicada e Aeroespacial          %
+%       Departamento de Engenharia Mecanica                          %
+%       Instituto Superior Tecnico                                   %
+%       Av. Rovisco Pais                                             %
+%       1049-001 Lisboa                                              %
+%       Portugal                                                     %
+%       Tel: +351 21 841 9469                                        %
+%                        3469 (extension)                            %
+%       Email: andre.marta@tecnico.ulisboa.pt                        %
+%                                                                    %
+%  Created:       Jan 12, 2023                                       %
+%  Last Modified: Jan 12, 2023                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLOR
+%
+% Defines the default colors of title, frame title, itemization bullets, and many other elements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% See theme templates in directory
+% /usr/share/texmf/tex/latex/beamer/base/themes/color
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{beamercolorthemeIST}
+
+\mode<presentation>
+
+%---------------------------------------------------------------------
+% Custom colors
+
+%\selectcolormodel{cmyk} % cyan magenta, yellow, black
+%\selectcolormodel{rgb}  % red, green, blue (each rgb component in the 0.00-1.00 range)
+%\selectcolormodel{RGB}  % red, green, blue (each RGB component in the 0-255 range)
+
+\definecolor{colorISTcyan}{cmyk}{1,0,0,0}
+\definecolor{colorISTlightcyan}{cmyk}{0.2,0,0,0}
+\definecolor{colorISTgray}{cmyk}{0.2,0,0,0.8}
+\definecolor{colorSeparation}{HTML}{FF6518} % separation line and alert
+
+%---------------------------------------------------------------------
+% Text and slide background color (in main body of the slide, excludes header and footer)
+
+%\setbeamercolor{normal text}{fg=black,bg=colorISTlightcyan}
+
+% Alert \alert{} environment
+%\setbeamercolor{alerted text}{fg=colorSeparation}
+
+% Example \example{} environment
+%\setbeamercolor{example text}{fg=green!60!black} % blend 60% green + 40% black
+%\setbeamercolor{example body}{fg=black,bg=white}
+
+%---------------------------------------------------------------------
+% Overall color of presentation
+% (affects many items, including slide title, header, footer, bullets and navigation icons)
+% e.g., \structure{<text>}
+
+\setbeamercolor{structure}{fg=colorISTcyan,bg=colorISTgray}
+
+%---------------------------------------------------------------------
+% Background
+
+%\setbeamercolor{background canvas}{parent=normal text}
+%\setbeamercolor{background}{parent=background canvas}
+
+%---------------------------------------------------------------------
+% Aditional palletes to be used by environments below
+
+\setbeamercolor{palette primary}{use=structure,fg=black,bg=structure.fg!40!white}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!60!white}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!90!white}
+\setbeamercolor{palette quaternary}{fg=white,bg=black}
+
+%\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+
+%---------------------------------------------------------------------
+% Math text colors
+
+%\setbeamercolor{math text}{}
+%\setbeamercolor{math text inlined}{parent=math text}
+%\setbeamercolor{math text displayed}{parent=math text}
+
+%\setbeamercolor{normal text in math text}{}
+
+%---------------------------------------------------------------------
+\setbeamercolor{local structure}{parent=structure}
+
+%---------------------------------------------------------------------
+% Title, subtitle, author, institute and date colors
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{titlelike}{use=structure,fg=structure.fg}
+
+%\setbeamercolor{title}{parent=titlelike}
+\setbeamercolor{title in head/foot}{parent=palette quaternary}
+%\setbeamercolor{title in sidebar}{parent=palette sidebar quaternary}
+%\setbeamercolor{title in headline}{}
+
+%\setbeamercolor{subtitle}{parent=title}
+
+%\setbeamercolor{author}{}
+\setbeamercolor{author in head/foot}{parent=palette primary}
+%\setbeamercolor{author in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+%\setbeamercolor{author in headline}{}
+
+%\setbeamercolor{institute}{}
+\setbeamercolor{institute in head/foot}{parent=palette tertiary}
+%\setbeamercolor{institute in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+%\setbeamercolor{institute in headline}{}
+
+%\setbeamercolor{date}{}
+\setbeamercolor{date in head/foot}{parent=palette secondary}
+%\setbeamercolor{date in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+
+%\setbeamercolor{titlegraphic}{}
+
+%---------------------------------------------------------------------
+% Part, section, subsection, subsubsection colors
+
+%\setbeamercolor{part name}{}
+%\setbeamercolor{part title}{parent=titlelike}
+
+%\setbeamercolor{section name}{}
+%\setbeamercolor{section title}{parent=titlelike}
+
+%\setbeamercolor{section in toc}{parent=structure}
+%\setbeamercolor{section in toc shaded}{parent=section in toc}
+%\setbeamercolor{section in head/foot}{parent=palette tertiary}
+%\setbeamercolor{section in sidebar}{parent=palette sidebar secondary}
+%\setbeamercolor{section in sidebar shaded}{use=section in sidebar,fg=section in sidebar.fg!40!bg}
+%\setbeamercolor{section number projected}{parent=item projected}
+
+%\setbeamercolor{subsection name}{}
+%\setbeamercolor{subsection title}{parent=titlelike}
+
+%\setbeamercolor{subsection in toc}{}
+%\setbeamercolor{subsection in toc shaded}{parent=subsection in toc}
+%\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+%\setbeamercolor{subsection in sidebar}{parent=palette sidebar primary}
+%\setbeamercolor{subsection in sidebar shaded}{use=subsection in sidebar,fg=subsection in sidebar.fg!40!bg}
+%\setbeamercolor{subsection number projected}{parent={subitem projected}}
+
+%\setbeamercolor{subsubsection in toc}{parent=subsection in toc}
+%\setbeamercolor{subsubsection in toc shaded}{parent=subsubsection in toc}
+%\setbeamercolor{subsubsection in head/foot}{parent=subsection in head/foot}
+%\setbeamercolor{subsubsection in sidebar}{parent=subsection in sidebar}
+%\setbeamercolor{subsubsection in sidebar shaded}{parent=subsection in sidebar shaded}
+%\setbeamercolor{subsubsection number projected}{parent=subsubitem projected}
+
+%---------------------------------------------------------------------
+% Headline and footline colors
+
+%\setbeamercolor{headline}{}
+%\setbeamercolor{footline}{}
+
+%---------------------------------------------------------------------
+% Sidebar colors
+
+%\setbeamercolor{sidebar}{use=structure,bg=structure.fg}
+%\setbeamercolor{sidebar left}{parent=sidebar}
+%\setbeamercolor{sidebar right}{parent=sidebar}
+
+%---------------------------------------------------------------------
+% Logo colors
+
+%\setbeamercolor{logo}{parent=palette secondary}
+%\setbeamercolor{logo in headline}{fg=black,bg=lightgray}
+
+%---------------------------------------------------------------------
+% Frame title and subtitle colors
+
+%\setbeamercolor{frametitle}{parent=titlelike}
+%\setbeamercolor{framesubtitle}{parent=frametitle}
+
+%\setbeamercolor{frametitle right}{parent=frametitle}
+
+%---------------------------------------------------------------------
+% Caption colors
+
+%\setbeamercolor{caption}{}
+%\setbeamercolor{caption name}{parent=structure}
+
+%---------------------------------------------------------------------
+% Navigation buttons colors
+
+%\setbeamercolor{button}{use=local structure,bg=local structure.fg!50!bg,fg=white}
+%\setbeamercolor{button border}{use=button,fg=button.bg}
+%\setbeamercolor{navigation symbols}{use=structure,fg=structure.fg!40!bg}
+%\setbeamercolor{navigation symbols dimmed}{use=structure,fg=structure.fg!20!bg}
+
+%\setbeamercolor{mini frame}{parent=section in head/foot}
+
+%---------------------------------------------------------------------
+% Block body and title colors
+% \begin{block}...\end{block} environment
+
+%\setbeamercolor{block body}{}
+%\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+%\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+%\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+%\setbeamercolor{block title}{parent=structure}
+\setbeamercolor{block title}{fg=white,bg=colorISTcyan}
+%\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+%\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+%\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+
+%---------------------------------------------------------------------
+% List colors
+
+\setbeamercolor{item}{parent=local structure}
+%\setbeamercolor{subitem}{parent=item}
+%\setbeamercolor{subsubitem}{parent=subitem}
+
+\setbeamercolor{item projected}{parent=item,use=item,fg=colorISTgray,bg=item.fg}
+%\setbeamercolor{subitem projected}{parent=item projected}
+%\setbeamercolor{subsubitem projected}{parent=subitem projected}
+
+%\setbeamercolor{enumerate item}{parent=item}
+%\setbeamercolor{enumerate subitem}{parent=subitem}
+%\setbeamercolor{enumerate subsubitem}{parent=subsubitem}
+
+%\setbeamercolor{itemize item}{parent=item}
+%\setbeamercolor{itemize subitem}{parent=subitem}
+%\setbeamercolor{itemize subsubitem}{parent=subsubitem}
+
+%\setbeamercolor{itemize/enumerate body}{}
+%\setbeamercolor{itemize/enumerate subbody}{}
+%\setbeamercolor{itemize/enumerate subsubbody}{}
+
+%\setbeamercolor{description item}{parent=item}
+
+%---------------------------------------------------------------------
+% Bibliography colors
+
+%\setbeamercolor{bibliography item}{parent=item}
+
+%\setbeamercolor{bibliography entry author}{use=structure,fg=structure.fg}
+%\setbeamercolor{bibliography entry title}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{bibliography entry location}{use=structure,fg=structure.fg!65!bg}
+%\setbeamercolor{bibliography entry note}{use=structure,fg=structure.fg!65!bg}
+
+%---------------------------------------------------------------------
+% Separation line colors
+
+\setbeamercolor{separation line}{bg=colorSeparation}
+%\setbeamercolor{fine separation line}{}
+
+%\setbeamercolor{upper separation line head}{parent=separation line}
+%\setbeamercolor{middle separation line head}{parent=separation line}
+%\setbeamercolor{lower separation line head}{parent=separation line}
+
+%\setbeamercolor{upper separation line foot}{parent=separation line}
+%\setbeamercolor{middle separation line foot}{parent=separation line}
+%\setbeamercolor{lower separation line foot}{parent=separation line}
+
+%---------------------------------------------------------------------
+% Other environments colors
+
+%\setbeamercolor{abstract}{}
+%\setbeamercolor{abstract title}{parent=structure}
+
+%\setbeamercolor{verse}{}
+
+%\setbeamercolor{quotation}{}
+%\setbeamercolor{quote}{parent=quotation}
+
+%---------------------------------------------------------------------
+% Page number color
+
+%\setbeamercolor{page number in head/foot}{fg=fg!50!bg}
+
+%---------------------------------------------------------------------
+%\setbeamercolor{qed symbol}{parent=structure}
+
+\mode<all>
