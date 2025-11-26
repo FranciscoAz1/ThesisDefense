@@ -138,38 +138,58 @@
 
 \section{Motivation and Problem}
 
-\begin{frame}{Motivation: Enterprise Information Pain}
+\begin{frame}{Enterprise Information Challenges}
+\textbf{Critical Business Context:}
 \begin{itemize}
-  \item Public sector platforms: rich processes, poor retrieval
-  \item Users lose time locating updated documents
-  \item Decisions risk using superseded info
-  \item Manual checking of dependencies = high cognitive load
+  \item Enterprises rely on \textit{accurate, current} information for project approvals, compliance decisions, and operational governance
+  \item \textbf{High-stakes work}: Incorrect or outdated information can lead to regulatory violations, project failures, or financial losses
+\end{itemize}
+\vspace{0.3em}
+\textbf{Current Problems:}
+\begin{itemize}
+  \item Professionals spend significant time searching, reading, and analyzing multiple documents
+  \item Manual verification of document dependencies creates \textbf{high cognitive load}
+  \item Decisions risk relying on superseded or nullified information
+  \item \textbf{Even modern semantic search systems fail} in critical situations—they cannot guarantee information currency or detect contradictions
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Context: Edoclink Enterprise}
+\textbf{Document Management Platform:}
+\begin{itemize}
+  \item Organizes documents with structured workflows and business rules
+  \item Supports evolution from ad-hoc to complex workflow configurations
+  \item Enables end-to-end process automation and digitalization
+  \item Features: document lifecycle management, collaborative work, ERP integration
+  \item Used in public sector and enterprises with rich, complex processes
 \end{itemize}
 \vspace{0.4em}
-\textbf{Goal:} Reliable answers over evolving document ecosystems.
+\textbf{Thesis Opportunity:} Leverage this rich structure to enhance semantic search and retrieval accuracy.
 \end{frame}
 
-\begin{frame}{Problem: Interdependent Information}
-	\textbf{Challenges}
-\begin{itemize}
-  \item Updates invalidate older assertions
-  \item Temporal precedence matters
-  \item Keyword search misses structure
-  \item Naive RAG ignores relationships
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Problem: Interdependent Information}
+\begin{frame}{Problem: Example Scenario}
 	\textbf{Example Timeline}
 \begin{itemize}
-  \item Jan: Approve Vendor X (A)
-  \item Mar: Suspend Vendor X (B)
-  \item Apr Query: ``Can we contract?'' % chktex 38 allow
+  \item Jan: Approve Vendor X (doc A)
+  \item Mar: Suspend Vendor X (doc B)
+  \item Apr Query: ``Can we contract Vendor X?'' % chktex 38 allow
 \end{itemize}
 	\textbf{Risk:} Retrieves A, ignores B..
-\vspace{0.4em}
+\vspace{0.4em} \\
 	\textbf{Core Challenge:} Capture and reason over document dependencies.
 \end{frame}
+
+
+
+% \begin{frame}{Problem: Interdependent Information}
+% 	\textbf{Challenges}
+% \begin{itemize}
+%   \item Updates invalidate older assertions
+%   \item Temporal precedence matters
+%   \item Keyword search misses structure
+%   \item Naive RAG ignores relationships
+% \end{itemize}
+% \end{frame}
 
 \begin{frame}{Research Gap}
 \begin{itemize}
