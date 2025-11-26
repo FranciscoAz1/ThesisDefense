@@ -59,12 +59,6 @@
 %% http://www.ctan.org/tex-archive/help/Catalogue/entries/bm.html
 \usepackage{bm}
 
-% Full bib­li­og­ra­phy en­tries in the main text of a document
-% http://www.ctan.org/pkg/bibentry
-\usepackage{bibentry}
-\nobibliography*
-\renewcommand{\newblock}{}
-
 % Redefine footnotesize (used for bibliographic references)
 \let\oldfootnotesize\footnotesize
 \renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
@@ -87,7 +81,9 @@
 
 \title[Enhancing Semantic Search]{Enhancing Semantic Search with Retrieval-Augmented Generation and Agentic AI}
 
-\author[Francisco Azeredo]{Francisco Azeredo}
+% Add advisors (replace placeholders with real names)
+% Updated with actual advisor names
+\author[Francisco Azeredo]{Francisco Azeredo\\\small Academic Advisor: Prof. Sérgio Luís Proença Duarte Guerreiro\\\small Industrial Advisor: Eng.º Filipe Mendes Correia (Link Consulting SA)}
 
 \titlegraphic{\includegraphics[height=8mm]{figures/IST_A_white_bg_crop.jpg}}
 
@@ -114,7 +110,7 @@
 % Title page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[plain] % supress drawing of header and footer decorations
-  \titlepage
+  	\titlepage
 \end{frame}
 
 % Reset page counter to exclude title page
@@ -127,232 +123,252 @@
 %--------------------------------------------------------------------
 % INTRODUCTION
 %--------------------------------------------------------------------
-\section{Objectives \\ \& Outline}
+\section{Outline}
 
-\begin{frame}{Presentation Outline}
+\begin{frame}{Presentation Structure}
 \begin{enumerate}
-  \item Problem \& Motivation
+  \item Motivation and Problem
   \item Objectives
-  \item System Architecture
-  \item Evaluation \& Results
-  \item Conclusions \& Future Work
+  \item Architecture and Components
+  \item Related Work (Context)
+  \item Evaluation and Results
+  \item Conclusions and Future Work
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Research Problem}
-\begin{block}{Core Challenge}
-How to handle \textbf{interdependent information} in enterprise settings where information is \textbf{dynamic} and later reports can nullify earlier ones?
-\end{block}
-\vspace{0.5em}
-\textbf{Key gaps in existing solutions:}
+\section{Motivation and Problem}
+
+\begin{frame}{Motivation: Enterprise Information Pain}
 \begin{itemize}
-  \item Keyword search ignores semantic meaning and document structure
-  \item Naive RAG retrieves isolated information without considering dependencies
-  \item Cannot track how information relates to, updates, or contradicts each other
-  \item No standard tools for agents to traverse information relationships
+  \item Public sector platforms: rich processes, poor retrieval
+  \item Users lose time locating updated documents
+  \item Decisions risk using superseded info
+  \item Manual checking of dependencies = high cognitive load
+\end{itemize}
+\vspace{0.4em}
+\textbf{Goal:} Reliable answers over evolving document ecosystems.
+\end{frame}
+
+\begin{frame}{Problem: Interdependent Information}
+	\textbf{Challenges}
+\begin{itemize}
+  \item Updates invalidate older assertions
+  \item Temporal precedence matters
+  \item Keyword search misses structure
+  \item Naive RAG ignores relationships
 \end{itemize}
 \end{frame}
 
-
-
-\section{Problem \\ \& Motivation}
-
-\begin{frame}{Motivation: Why Corporate Search Fails}
-\textbf{Traditional keyword search limitations:}
+\begin{frame}{Problem: Interdependent Information}
+	\textbf{Example Timeline}
 \begin{itemize}
-  \item Cannot capture context, semantics, or document structure
-  \item Users must guess exact terms and file locations
-  \item Ignores relationships between information pieces
+  \item Jan: Approve Vendor X (A)
+  \item Mar: Suspend Vendor X (B)
+  \item Apr Query: ``Can we contract?'' % chktex 38 allow
 \end{itemize}
-\vspace{0.5em}
-\textbf{Naive RAG limitations in enterprise settings:}
+	\textbf{Risk:} Retrieves A, ignores B..
+\vspace{0.4em}
+	\textbf{Core Challenge:} Capture and reason over document dependencies.
+\end{frame}
+
+\begin{frame}{Research Gap}
 \begin{itemize}
-  \item Retrieves relevant information but \textbf{ignores interdependencies}
-  \item Cannot detect when newer reports nullify or update older information
-  \item Treats information store as static, missing \textbf{dynamic information flow}
-  \item High risk: outdated or contradicted information in critical decisions
+  \item No standard tooling for dependency-aware retrieval
+  \item GraphRAG ideas emerging; enterprise schemas underused
+  \item Agents lack validated schema-constrained traversal tools
+  \item Need: Hybrid semantic + structural + temporal reasoning
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The Document Interdependency Problem}
-\textbf{Example scenario:}
+\section{Objectives}
+
+\begin{frame}{Objectives Overview}
 \begin{itemize}
-  \item \textbf{Report A (Jan 2024):} "Vendor X approved for contracts up to \$100K"
-  \item \textbf{Report B (Mar 2024):} "Vendor X approval suspended due to audit"
-  \item \textbf{Query (Apr 2024):} "Can we contract with Vendor X?"
+  \item \textbf{Represent} enterprise document structure and relations
+  \item \textbf{Detect} updates / contradictions across documents
+  \item \textbf{Reason} with agents over a knowledge graph
+  \item \textbf{Standardize} access (MCP server for Weaviate)
+  \item \textbf{Evaluate}: compare naive and baseline RAG
 \end{itemize}
-\vspace{0.5em}
-\textbf{Naive RAG problem:}
-\begin{itemize}
-  \item May retrieve Report A (highly relevant to query)
-  \item Misses that Report B nullifies Report A
-  \item Returns \textbf{accurate but outdated} information $\rightarrow$ incorrect answer
-\end{itemize}
-\vspace{0.3em}
-\textbf{Solution needed:} Graph-based reasoning to traverse information relationships
 \end{frame}
 \begin{frame}{Thesis Objectives}
 \textbf{Main goal:} Handle information interdependencies through graph-based agentic reasoning.
 \vspace{0.5em}
 
-\textbf{Specific objectives:}
+\begin{frame}{Objective Details}
 \begin{enumerate}
-  \item Design a schema that captures enterprise document structure and relationships
-  \item Implement GraphRAG: knowledge graph construction from document corpus
-  \item Develop agentic graph traversal for multi-hop reasoning over dependencies
-  \item Create an MCP server for standardized agent-database interaction
-  \item Evaluate against naive RAG on enterprise-like scenarios
+  \item Schema design (workflows, entities, metadata)
+  \item Graph construction (entity merging, references)
+  \item Agent traversal (multi-hop, temporal ordering)
+  \item MCP tools (validated queries, follow references)
+  \item Evaluation (retrieval accuracy, answer quality)
 \end{enumerate}
 \end{frame}
-\section{Architecture}
 
-\begin{frame}{System Architecture Overview}
-\textbf{Three-layer architecture:}
+\section{Architecture and Components}
+
+\begin{frame}{Architecture Overview}
 \begin{enumerate}
-  \item \textbf{Processing:} OCR, chunking, embeddings, metadata extraction
-  \item \textbf{Storage:} Vector database (Weaviate) + Knowledge graph for information relationships
-  \item \textbf{Reasoning:} ReAct agent with schema-aware tools (MCP)
+  \item Ingestion (OCR, chunking, embeddings)
+  \item Storage (Vector DB + Graph)
+  \item Reasoning (Agent + MCP tools)
 \end{enumerate}
+\vspace{0.3em}
+\includegraphics[width=0.8\linewidth]{Images/Fluxograma_Data_Processing_Pipeline.jpeg}
+\end{frame}
+
+\begin{frame}{Schema Data Model}
+Six core classes:
+\begin{itemize}
+  \item Workflow (Fluxo), Step (Etapa)
+  \item Entity (Entidade)
+  \item Folder (Pasta), File (Ficheiro), Metadata (Metadados)
+\end{itemize}
+Cross-references enable semantic + deterministic traversal.
 \begin{center}
-  \includegraphics[width=0.75\linewidth]{Images/Fluxograma_Data_Processing_Pipeline.jpeg}
+  \includegraphics[width=0.6\linewidth]{Images/Classe UML.png}
 \end{center}
 \end{frame}
 
-\begin{frame}{Schema-Aware Data Model}
-\textbf{Six core classes model enterprise document structure:}
+\begin{frame}{Graph Construction}
 \begin{itemize}
-  \item \textbf{Fluxo} (Workflow), \textbf{Etapa} (Step): process structure
-  \item \textbf{Entidade} (Entity): companies, people, products
-  \item \textbf{Pasta} (Folder), \textbf{Ficheiro} (File), \textbf{Metadados} (Metadata)
+  \item Extract entities from chunks (LLM assisted)
+  \item Merge nodes with matching entities
+  \item Maintain references (updates, supersedes)
+  \item Output: lightweight knowledge graph
 \end{itemize}
-\vspace{0.3em}
-\textbf{Key benefit:} Cross-references enable both semantic search \textit{and} deterministic multi-hop traversal.
-\begin{center}
-  \includegraphics[width=0.7\linewidth]{Images/Classe UML.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Knowledge Graph Construction (MiniRAG)}
-\textbf{Lightweight GraphRAG implementation:}
-\begin{itemize}
-  \item LLM extracts key entity words from document chunks
-  \item Nodes with matching entity words are merged
-  \item Creates graph structure connecting related information
-  \item Requires supervision but aids in processing large document sets
-\end{itemize}
-\vspace{0.3em}
-\textbf{Goal:} Facilitate discovery of information relationships across documents through entity-based graph structure.
 \begin{center}
   \includegraphics[width=0.5\linewidth]{Images/graph_visualisation_big.png}
 \end{center}
 \end{frame}
 
-\begin{frame}{Agentic Graph Traversal (Mini Query Mode)}
-\textbf{Multi-hop reasoning over knowledge graph:}
+\begin{frame}{Agent Traversal Flow}
 \begin{enumerate}
-  \item Extract entities and temporal context from query
-  \item Retrieve relevant information via vector search
-  \item \textbf{Traverse graph} to find related/updating information
-  \item Build context considering dependencies and temporal order
-  \item Generate answer from complete, up-to-date evidence
+  \item Parse query (entities + time)
+  \item Hybrid retrieval (vector + filters)
+  \item Follow graph refs (updates/nullifications)
+  \item Assemble consistent evidence set
+  \item Generate answer (current state)
 \end{enumerate}
-\begin{center}
-  \includegraphics[width=0.65\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
-\end{center}
+\includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
 \end{frame}
 
-\begin{frame}{Weaviate MCP Server: Agent-Database Bridge}
-\textbf{Model Context Protocol (MCP) standardizes agent tool interfaces.}
-
-\textbf{Our contribution:} First MCP server for Weaviate
+\begin{frame}{MCP Server (Weaviate Bridge)}
 \begin{itemize}
-  \item Exposes tools: \texttt{weaviate-query}, \texttt{weaviate-follow-ref}, etc.
+  \item Standard tool interface for agents
+  \item Validated schema-aware queries
+  \item Tools: weaviate-query, weaviate-follow-ref
+  \item Enables safe multi-hop reasoning
 \end{itemize}
-\begin{center}
-  \includegraphics[width=0.6\linewidth]{Images/Sequence-diagram-Weaviate-Query.png}
-\end{center}
+\includegraphics[width=0.55\linewidth]{Images/Sequence-diagram-Weaviate-Query.png}
 \end{frame}
 
-\section{Results}
-
-\begin{frame}{Results: Retrieval Performance}
-\textbf{Experiment:} Single-collection retrieval on enterprise-like dataset
-\vspace{0.5em}
-
-\textbf{Key findings:}
+\begin{frame}{Control Perspective (Robotics/AI)}
 \begin{itemize}
-  \item \textbf{Agentic RAG}: 60.4\% retrieval rate, 61\% correct answers
-  \item Outperforms all baselines by large margin (2-4×)
-  \item Agentic approach combines multi-step reasoning with hybrid search
+  \item Retrieval = perception layer
+  \item Graph = system state representation
+  \item Agent traversal = planning refinement loop
+  \item Updates = state correction (feedback)
+  \item Ensures consistent decision inputs
 \end{itemize}
+\end{frame}
+
+\section{Related Work}
+
+\begin{frame}{Related Work: Semantic and Graph RAG}
+\begin{itemize}
+  \item Keyword enterprise search: lacks semantics/structure
+  \item Classic RAG: isolated chunk retrieval
+  \item Emerging GraphRAG: entity/relationship surfacing
+  \item Gap: temporal nullification + standardized tooling
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comparison to Prior Approaches}
+\begin{itemize}
+  \item Adds temporal precedence handling
+  \item Integrates schema-driven traversal
+  \item Standardizes graph access (MCP server)
+  \item Focus: enterprise interdependency reliability
+\end{itemize}
+\end{frame}
+
+\section{Evaluation and Results}
+
+\begin{frame}{Evaluation Questions}
+\begin{itemize}
+  \item Does graph traversal improve retrieval accuracy?
+  \item Does dependency handling improve answer correctness?
+  \item Does hybrid search generalize across collections?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Single-Collection Performance}
+\textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
+\vspace{0.3em}
 \begin{center}
-  % Single-collection retrieval and answer quality
   \input{tables_and_code/table_document_retrieved_metrics.tex}
 \end{center}
-\footnotesize{``Correct Answers'' = answers passing Youden-optimized quality threshold}
+\footnotesize Threshold via Youden optimization.
 \end{frame}
 
-\begin{frame}{Results: Multi-Collection Retrieval}
-\textbf{Experiment:} Retrieval across heterogeneous document collections
-\vspace{0.5em}
-
-\textbf{Key findings:}
+\begin{frame}{Multi-Collection Retrieval}
+\textbf{Generalization across heterogeneous sources}
 \begin{itemize}
-  \item Agent successfully selects appropriate collection for each query
-  \item All agentic methods outperform naive baseline (2-3×)
-  \item Different strategies (REST API, LexRank, DOCX) suit different content
+  \item Correct collection selection
+  \item 2--3$\times$ improvement across strategies
+  \item Robust to format variation
 \end{itemize}
 \begin{center}
-  % Mixed-documents retrieval metrics
   \input{tables_and_code/table_documents_mixed.tex}
 \end{center}
-\footnotesize{Demonstrates generalization to diverse document types and sources}
 \end{frame}
 
-\section{Conclusions \& Future Work}
+\begin{frame}{Key Result Insights}
+\begin{itemize}
+  \item Multi-hop reasoning reduces outdated answers
+  \item Temporal ordering prevents contradiction leakage
+  \item Graph adds structured context beyond embeddings
+\end{itemize}
+\end{frame}
+
+\section{Conclusions and Future Work}
 
 \begin{frame}{Main Contributions}
 \begin{enumerate}
-  \item \textbf{Problem identification:} Formalized the information interdependency challenge in enterprise semantic search
-  \item \textbf{GraphRAG architecture:} Schema-aware system capturing information relationships, updates, and temporal dependencies
-  \item \textbf{Agentic graph traversal:} Multi-hop reasoning framework to handle dynamic information and nullification
-  \item \textbf{MCP server:} First standardized tool for agents to query Weaviate with schema validation
-  \item \textbf{Evaluation:} Demonstrated 2-4× improvement over naive RAG on enterprise scenarios
+  \item Formalized enterprise interdependency retrieval problem
+  \item Schema + graph architecture for dynamic updates
+  \item Agentic multi-hop traversal (temporal aware)
+  \item MCP Weaviate server (standardized tools)
+  \item Empirical gains (2–4× over baselines)
 \end{enumerate}
 \end{frame}
 
 \begin{frame}{Conclusions}
 \begin{itemize}
-  \item \textbf{GraphRAG with agentic traversal} handles information interdependencies that naive RAG cannot (60\% vs 14-34\% retrieval accuracy)
-  \item \textbf{Multi-hop reasoning} over knowledge graphs enables tracking how information updates, supersedes, or contradicts earlier information
-  \item Successfully addresses \textbf{dynamic information storage} problem in enterprise settings
-  \item MCP server provides standardized, validated access to Weaviate for any LLM agent
-  \item Demonstrates importance of \textbf{information structure and relationships} beyond semantic similarity
+  \item \textbf{Graph-aware reasoning}: prevents outdated answers\pause
+  \item \textbf{Temporal ordering}: resolves contradictions\pause
+  \item \textbf{Schema constraints}: reduce hallucination surface\pause
+  \item \textbf{Tool standardization} enables reproducible agent pipelines
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Limitations \& Challenges}
-\textbf{Experimental limitations:}
+\begin{frame}{Limitations}
 \begin{itemize}
-  \item Computational and budget constraints limited scale of experiments
-  \item No public benchmark exists for structure-aware enterprise retrieval
-\end{itemize}
-\vspace{0.5em}
-\textbf{Open challenges:}
-\begin{itemize}
-  \item LLM hallucinations not fully eliminated (though greatly reduced)
-  \item Privacy and security considerations in enterprise deployment
-  \item Scalability to millions of information pieces requires further optimization
+  \item Scale constrained (compute / budget)
+  \item No public benchmark (construction overhead)
+  \item Residual hallucinations possible
+  \item Need deeper privacy/ACL integration
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Future Work}
 \begin{itemize}
-  \item Evaluate stronger models and longer context windows.
-  \item Develop public benchmarks for structure-aware retrieval.
-  \item Explore advanced reasoning (multi-agent, graph reasoning, GraphRAG).
-  \item Integrate with enterprise systems and enforce ACLs at scale.
-  \item Scale to millions of information pieces with optimized graph traversal.
+  \item Larger-scale graph + incremental updates
+  \item Benchmark release (structure-aware retrieval)
+  \item Multi-agent verification and consistency checks
+  \item Integration with access control layers
+  \item Publication submission (CONF NAME / JOURNAL TBD)
 \end{itemize}
 \end{frame}
 
@@ -363,7 +379,6 @@ How to handle \textbf{interdependent information} in enterprise settings where i
   \vspace{1em}
   Francisco Azeredo\\
   Instituto Superior T\'ecnico\\
-  \vspace{0.5em}
   Questions?
 \end{center}
 \end{frame}

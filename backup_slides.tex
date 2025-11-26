@@ -1,0 +1,74 @@
+% Backup slides (not included automatically). Include via \input if needed.
+% These provide depth during Q&A.
+
+\section*{Backup Slides}
+
+\begin{frame}{Ablation: Components}
+\begin{tabular}{l c c}
+Component & Retrieval Gain & Correctness Gain \\
+\hline
+Graph refs & +18\% & +11\% \\
+Temporal ordering & +9\% & +7\% \\
+Hybrid search & +12\% & +6\% \\
+MCP validation & +5\% & +4\% \\
+\end{tabular}
+\footnotesize Synthetic illustration if numbers not public.
+\end{frame}
+
+\begin{frame}{Failure Modes}
+\begin{itemize}
+  \item Sparse graph: limited hops \rightarrow fallback vector only
+  \item Conflicting updates without timestamps: unresolved contradiction
+  \item Entity over-merging: conflated contexts
+  \item Long-tail metadata: low embedding recall
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Latency Breakdown (Illustrative)}
+\begin{tabular}{l c}
+Stage & ms \\
+\hline
+Vector search & 120 \\
+Graph expansion (3 hops) & 85 \\
+Filtering / dedupe & 30 \\
+LLM answer synthesis & 900 \\
+Total & \~1135 \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Privacy / ACL Strategy}
+\begin{itemize}
+  \item Pre-filter nodes by user ACL before traversal
+  \item Deny edges crossing restricted contexts
+  \item Signed tool calls (audit log)
+  \item Future: differential graph views per role
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Extended Traversal Example}
+Query: ``Latest status of Vendor X contract limits''
+\begin{enumerate}
+  \item Initial vector set (5 chunks)
+  \item Follow updates edge \rightarrow Node B supersedes A
+  \item Merge metadata (limit suspended)
+  \item Filter contradictory older node
+  \item Answer from B + timeline
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Benchmark Construction Notes}
+\begin{itemize}
+  \item Curated enterprise-like synthetic corpus
+  \item Injected temporal updates and nullifications
+  \item Annotated ground truth dependencies
+  \item Evaluation: retrieval + correctness + contradiction avoidance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Publication Target}
+\begin{itemize}
+  \item Candidate venues: ISWC, KDD Applied Data Science, RecSys Industry
+  \item Focus: dependency-aware enterprise semantic search
+  \item Planned artifact: open schema + MCP tooling
+\end{itemize}
+\end{frame}
