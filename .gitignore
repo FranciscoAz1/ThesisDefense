@@ -4,3 +4,6 @@ presentation.log
 presentation.synctex.gz
 student_profile.md
 .github/agents/presentation.agent.md
+presentation.aux
+presentation.fdb_latexmk
+presentation.pdf
