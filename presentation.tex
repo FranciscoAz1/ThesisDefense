@@ -166,37 +166,27 @@
 \vspace{0.4em}
 \textbf{Thesis Opportunity:} Leverage this rich structure to enhance semantic search and retrieval accuracy.
 \end{frame}
+\begin{frame}{Problem Illustration}
+    put this image
+    https://www.bbc.com/news/war-in-ukraine
+\end{frame}
 
 \begin{frame}{Problem: Example Scenario}
 	\textbf{Example Timeline}
 \begin{itemize}
-  \item Jan: Approve Vendor X (doc A)
-  \item Mar: Suspend Vendor X (doc B)
-  \item Apr Query: ``Can we contract Vendor X?'' % chktex 38 allow
+  \item Jan: Russia declared war on Ukraine (report A)
+  \item Mar: Russia and Ukraine agreed on a ceasefire (doc B)
+  \item Apr Query: ``How is the war in Ukraine?'' % chktex 38 allow
 \end{itemize}
 	\textbf{Risk:} Retrieves A, ignores B..
 \vspace{0.4em} \\
 	\textbf{Core Challenge:} Capture and reason over document dependencies.
 \end{frame}
 
-
-
-% \begin{frame}{Problem: Interdependent Information}
-% 	\textbf{Challenges}
-% \begin{itemize}
-%   \item Updates invalidate older assertions
-%   \item Temporal precedence matters
-%   \item Keyword search misses structure
-%   \item Naive RAG ignores relationships
-% \end{itemize}
-% \end{frame}
-
-\begin{frame}{Research Gap}
+\begin{frame}{Problem}
 \begin{itemize}
-  \item No standard tooling for dependency-aware retrieval
+  \item Current search methods don't account for information interdependencies
   \item GraphRAG ideas emerging; enterprise schemas underused
-  \item Agents lack validated schema-constrained traversal tools
-  \item Need: Hybrid semantic + structural + temporal reasoning
 \end{itemize}
 \end{frame}
 
@@ -206,15 +196,15 @@
 \begin{itemize}
   \item \textbf{Represent} enterprise document structure and relations
   \item \textbf{Detect} updates / contradictions across documents
-  \item \textbf{Reason} with agents over a knowledge graph
-  \item \textbf{Standardize} access (MCP server for Weaviate)
-  \item \textbf{Evaluate}: compare naive and baseline RAG
+  \item \textbf{Enterprise Ready:}
+  \begin{itemize}
+      \item \textbf{Standardize} easy to implement solution in current emerging frameworks
+      \item \textbf{Scalability} Work with highly scalable repositories of information
+  \end{itemize}
+  \item \textbf{Evaluate}: Evaluate efficiency, and quality of solutions
 \end{itemize}
 \end{frame}
-\begin{frame}{Thesis Objectives}
-\textbf{Main goal:} Handle information interdependencies through graph-based agentic reasoning.
-\vspace{0.5em}
-\end{frame}
+%% Possibly remove
 \begin{frame}{Objective Details}
 \begin{enumerate}
   \item Schema design (workflows, entities, metadata)
@@ -226,91 +216,54 @@
 \end{frame}
 
 \section{Architecture and Components}
-
 \begin{frame}{Architecture Overview}
+We developed 3 independent components for each step in document processing
 \begin{enumerate}
-  \item Ingestion (OCR, chunking, embeddings)
-  \item Storage (Vector DB + Graph)
-  \item Reasoning (Agent + MCP tools)
+  \item Insertion/Index (Automatic Knowledge Graph construction)
+  \item Query (Query techniques, some that take better advantage of the graph)
+  \item Generation (Context given to Agents or LLMs for a readable output)
 \end{enumerate}
 \vspace{0.3em}
+\end{frame}
+
+\begin{frame}{Knowledge graph construction}
+\begin{enumerate}
+  \item Extract entities and relationships
+  \item Merge nodes with matching entities
+  \item Store in a graph
+\end{enumerate}
+\vspace{0.3em}
+\centering
 \includegraphics[width=0.8\linewidth]{Images/Fluxograma_Data_Processing_Pipeline.jpeg}
 \end{frame}
 
-\begin{frame}{Schema Data Model}
-Six core classes:
-\begin{itemize}
-  \item Workflow (Fluxo), Step (Etapa)
-  \item Entity (Entidade)
-  \item Folder (Pasta), File (Ficheiro), Metadata (Metadados)
-\end{itemize}
-Cross-references enable semantic + deterministic traversal.
-\begin{center}
-  \includegraphics[width=0.6\linewidth]{Images/Classe UML.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Graph Construction}
-\begin{itemize}
-  \item Extract entities from chunks (LLM assisted)
-  \item Merge nodes with matching entities
-  \item Maintain references (updates, supersedes)
-  \item Output: lightweight knowledge graph
-\end{itemize}
-\begin{center}
-  \includegraphics[width=0.5\linewidth]{Images/graph_visualisation_big.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Agent Traversal Flow}
+\begin{frame}{Query Techniques}
+The query techniques go from the one of least latency to highest latency
 \begin{enumerate}
-  \item Parse query (entities + time)
-  \item Hybrid retrieval (vector + filters)
-  \item Follow graph refs (updates/nullifications)
-  \item Assemble consistent evidence set
-  \item Generate answer (current state)
+    \item Semantic, bm25 and hybrid queries
+    \item query reformulation (Extract entities and relationships from query) for graph retrieval
+    \item ReAct (Agent) queries using MCP server
 \end{enumerate}
+\centering
 \includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
 \end{frame}
 
+\begin{frame}{Agent Configuration}
+\begin{enumerate}
+  \item Instructed to be a document assistant, connected to a weaviate database, where it should base all of it's answers. And answer in a concise way with sources of information.
+  \item Tools to a MCP server, that handles communication from the Agent (natural language) to the weaviate server (graphQL)
+\end{enumerate}
+\end{frame}
+
 \begin{frame}{MCP Server (Weaviate Bridge)}
+Valuable communications
 \begin{itemize}
   \item Standard tool interface for agents
   \item Validated schema-aware queries
-  \item Tools: weaviate-query, weaviate-follow-ref
-  \item Enables safe multi-hop reasoning
+  \item Tools: weaviate-query, weaviate-origin, weaviate-follow-ref
 \end{itemize}
-\includegraphics[width=0.55\linewidth]{Images/Sequence-diagram-Weaviate-Query.png}
-\end{frame}
-
-\begin{frame}{Control Perspective (Robotics/AI)}
-\begin{itemize}
-  \item Retrieval = perception layer
-  \item Graph = system state representation
-  \item Agent traversal = planning refinement loop
-  \item Updates = state correction (feedback)
-  \item Ensures consistent decision inputs
-\end{itemize}
-\end{frame}
-
-\section{Related Work}
-
-\begin{frame}{Related Work: Semantic and Graph RAG}
-\begin{itemize}
-  \item Keyword enterprise search: lacks semantics/structure
-  \item Classic RAG: isolated chunk retrieval
-  \item Emerging GraphRAG: entity/relationship surfacing
-  \item Gap: temporal nullification + standardized tooling
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Comparison to Prior Approaches}
-\begin{itemize}
-  \item Adds temporal precedence handling
-  \item Integrates schema-driven traversal
-  \item Standardizes graph access (MCP server)
-  \item Focus: enterprise interdependency reliability
-\end{itemize}
+weviate-origin appends the weaviate object to the LLM with references of that object, described by the relationship
+weaviate-follow-ref is used for querying by following references of an object, and then doing the same weaviate-origin. Enabling agentic graph traversal.
 \end{frame}
 
 \section{Evaluation and Results}
@@ -352,6 +305,24 @@ Cross-references enable semantic + deterministic traversal.
 \end{itemize}
 \end{frame}
 
+\section{Related Work}
+\begin{frame}{Related Work: Semantic and Graph RAG}
+\begin{itemize}
+  \item Keyword enterprise search: lacks semantics/structure
+  \item Classic RAG: isolated chunk retrieval
+  \item Emerging GraphRAG: entity/relationship surfacing
+  \item Gap: temporal nullification + standardized tooling
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comparison to Prior Approaches}
+\begin{itemize}
+  \item Adds temporal precedence handling
+  \item Integrates schema-driven traversal
+  \item Standardizes graph access (MCP server)
+  \item Focus: enterprise interdependency reliability
+\end{itemize}
+\end{frame}
 \section{Conclusions and Future Work}
 
 \begin{frame}{Main Contributions}
