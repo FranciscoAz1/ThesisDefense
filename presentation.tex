@@ -270,23 +270,30 @@ weaviate-follow-ref is used for querying by following references of an object, a
 
 \begin{frame}{Evaluation Questions}
 \begin{itemize}
-  \item Does graph traversal improve retrieval accuracy?
-  \item Does dependency handling improve answer correctness?
-  \item Does hybrid search generalize across collections?
+  \item Does MiniRAG successfully capture document interdependency?
+  \item Does the model for retrieval matter?
+  \item How much can Agentic system improve retrieval and answer generation?
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Single-Collection Performance}
+\begin{frame}{MiniRag Interdependencies}
+Comparing MiniRaG to naive RAG with the new models, we tested with the same benchmark tested in MiniRAG both solutions, and control was the same as the results on the page on github. The score for naive RAG was the same, but for MiniRAG was lower. Which we conclude that using a light model such as Qwen2.5-3B doesn't bring good results. Althought the benchmarks in the page show that using gpt-4o-mini the results were 68.43 \%. Which even if inflated proves to capture temporal dependency through LLM Profiling.
+My results token recall 44 \% Naive RAG,  38\% mini, 27\% light
+Whereas the benchmark had 43 \%  Naive RAG, and light 39 \% and MiniRAG  49 \%. We see a 11 \% inflation in miniRAG, and the highest score using a reasoning model was 54 \% and mini a 68 \%. The difference between naive and mini increases with the model. Meaning this method could be good but expensive with a better model. For the lack of funding in this thesis we didn't test this model.
+\end{frame}
+
+    
+
+\begin{frame}{Does the model matter?}
 \textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
 \vspace{0.3em}
 \begin{center}
-  \input{tables_and_code/table_document_retrieved_metrics.tex}
+  \input{tables_and_code/table_doc_retrieved_comparison}
 \end{center}
-\footnotesize Threshold via Youden optimization.
 \end{frame}
 
 \begin{frame}{Multi-Collection Retrieval}
-\textbf{Generalization across heterogeneous sources}
+Agentic ReAct across multiple collections, shows improvements because of the use of more curated descriptions of the collections which guided the agent to make a more informed semantic query
 \begin{itemize}
   \item Correct collection selection
   \item 2--3$\times$ improvement across strategies
@@ -297,32 +304,71 @@ weaviate-follow-ref is used for querying by following references of an object, a
 \end{center}
 \end{frame}
 
-\begin{frame}{Key Result Insights}
-\begin{itemize}
-  \item Multi-hop reasoning reduces outdated answers
-  \item Temporal ordering prevents contradiction leakage
-  \item Graph adds structured context beyond embeddings
-\end{itemize}
+\begin{frame}{Summarization, compressing storage}
+Optimization's by choosing the most relevant text, actually improves the retrieval by reducing noise of information going to the database.
+\begin{table}[t]
+\centering
+\caption{Document retrieval and summarization metrics}
+\label{tab:document_retrieved_metrics_summarization}
+\begin{tabular}{lrrr}
+\hline
+Approach & Retrieval & token recall & jaccard \\
+\hline
+Agentic ReAct (GPT-5)& 60.4\% & 61.1\%  & 55.7\%\\
+LexRank & 33.6\% & 29.5\%  & 35.9\% \\
+BART & 17.8\% & 3.0\% & 11.1\% \\
+Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
+\hline
+\end{tabular}
+\end{table}
+Using Youden's thresholds
+\end{frame}
+
+\begin{frame}{Integration for Edoclink's workflow organization}
+    We experiment a use case where we use weaviate's cross-references in a general company workflow. In this implementation there are rules for putting document's into the database. And we show a use-case that it is used agentic multi-hop through queries to jump through a graph organized database.
+    The agent's identifies flows, and navigate's through them reasoning on disperse information. 
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth]{image.png}
+        \caption{Figure shows the flow of the agent to find information about the question How is the War on Russia and Ukraine?}
+        \label{fig:placeholder}
+    \end{figure}
+    The agent's searches decides to search the files, then the stages, then the flux and then the entities. Giving a fully informed and grounded answer. This enables to store information in snippets, and trusting the agent's reasoning to find information with discovery. Instead of feeding very large documents hoping it finds the needed information, and the information is in the documents. Which due to limited context and context drift in agent's it is not recommended.
+\end{frame}
+
+\begin{frame}{Final Answer}
+    Final answer. It remains an active, violent conflict. \\
+    Grounding (evidence). \\
+    • A matched stage in the “Russia vs Ukraine War” flow is tied to a report dated 2024-07-12 titled 
+    “Drone attack hits military base”. \\
+    • Excerpt: “A drone strike has reportedly destroyed parts of a military base near the front. Witnesses 
+    describe significant damage and casualties.” \\
+    Interpretation.
+    • Continued strikes on military targets near the front and ongoing casualties, involving both Russia
+    and Ukraine as the referenced entities
 \end{frame}
 
 \section{Related Work}
-\begin{frame}{Related Work: Semantic and Graph RAG}
+\begin{frame}{Related Work:}
 \begin{itemize}
-  \item Keyword enterprise search: lacks semantics/structure
-  \item Classic RAG: isolated chunk retrieval
-  \item Emerging GraphRAG: entity/relationship surfacing
-  \item Gap: temporal nullification + standardized tooling
+  \item Google NotebookLM : focuses on a personal, source-grounded assistant over curated notes and
+documents, producing footnoted syntheses and study guides
+  \item Perplexity AI : provides web-grounded conversational search with inline citations and multi-document
+aggregatio
+  \item Vector databases : Weaviate, Qdrant, and Milvus.
+  \item Multi Hop Agentic Retrieval : semi-structured enterprise information, in ruled workflow configurations. Found in platform's such as Edoclink.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Comparison to Prior Approaches}
+    My solution Multi Hop Agentic Retrieval.
 \begin{itemize}
-  \item Adds temporal precedence handling
   \item Integrates schema-driven traversal
   \item Standardizes graph access (MCP server)
   \item Focus: enterprise interdependency reliability
 \end{itemize}
 \end{frame}
+
 \section{Conclusions and Future Work}
 
 \begin{frame}{Main Contributions}
@@ -345,6 +391,14 @@ weaviate-follow-ref is used for querying by following references of an object, a
 \end{frame}
 
 \begin{frame}{Limitations}
+
+
+
+
+
+
+
+
 \begin{itemize}
   \item Scale constrained (compute / budget)
   \item No public benchmark (construction overhead)
