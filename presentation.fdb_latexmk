@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764182587.02379 "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" "presentation.pdf" "presentation" 1764182588.87085 0
+["pdflatex"] 1764519785.97292 "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" "presentation.pdf" "presentation" 1764519787.59657 0
   "C:/Users/Francisco" 1723828429 13145 4354b684c7a1d8d230cc0ebd6a7331b8 ""
   "C:/Users/Francisco Azeredo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1763317298 82686 2381c3433487640bf26aa76a10db7eb2 ""
   "C:/Users/Francisco Azeredo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcss1000.pk" 1763576699 10628 6c035ea55d23e58c2d3ead3702abe5ab ""
@@ -218,15 +218,15 @@
   "beamerouterthemeIST.sty" 1763317281 5633 596528dcad48cc2908503692c94a88ae ""
   "beamerthemeIST.sty" 1763317281 1989 5eab73c0b6a5098057927bca2005df3b ""
   "c:/Users/Francisco" 1723828429 13145 4354b684c7a1d8d230cc0ebd6a7331b8 ""
-  "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" 1764182584 15725 15ea64f3c2f4371adc5398c334b92a68 ""
+  "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" 1764183295 15862 1fb9c69b216980b1b2f867c5588e24a3 ""
   "figures/IST_A_gray_bg_crop.jpg" 1763317281 239124 f914e43e0c4624bc21f54b43fc5f9b29 ""
   "figures/IST_A_white_bg_crop.jpg" 1763317281 263634 0a760d39d608e6d846685b5ff2202b0f ""
-  "presentation.aux" 1764182588 6208 7df8ecbdb183e7cfebdd0b63560cef4b "pdflatex"
-  "presentation.nav" 1764182588 3776 2056fd1b0ab56845136cb31c6dcdc26f "pdflatex"
-  "presentation.out" 1764182588 966 0ea37b6dd14f48c45aba24adffbe5155 "pdflatex"
-  "presentation.tex" 1764182584 15725 15ea64f3c2f4371adc5398c334b92a68 ""
+  "presentation.aux" 1764519787 6217 a8851926222b6c8295084dfcf2e51563 "pdflatex"
+  "presentation.nav" 1764519787 3776 2056fd1b0ab56845136cb31c6dcdc26f "pdflatex"
+  "presentation.out" 1764519787 966 0ea37b6dd14f48c45aba24adffbe5155 "pdflatex"
+  "presentation.tex" 1764183295 15862 1fb9c69b216980b1b2f867c5588e24a3 ""
   "tables_and_code/table_document_retrieved_metrics.tex" 1763331051 388 8e1427174816f69cb2d9ca7e0a89a677 ""
-  "tables_and_code/table_documents_mixed.tex" 1763331051 410 10e10c2dc03ff4c191499602253a2e4d ""
+  "tables_and_code/table_documents_mixed.tex" 1764519784 513 f79cc60babe6f77a686c0cf57771c2fb ""
   (generated)
   "presentation.aux"
   "presentation.log"

@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{l r r r}
+        \hline
+        Approach & Calls & Cost (300 Q) & Retrieval\\
+        \hline
+        Naive RAG (Qwen2.5) & 1 & 0 & 13.8\% \\
+        Naive RAG (GPT-5) & 1 & \$5.07 & 13.4\% \\
+        Agentic ReAct (GPT-5) & 2--20 & \$18.35 & 60.4\% \\
+        \hline
+    \end{tabular}
+    \caption{Agentic ReAct used an average of 5 LLM calls per question}
+    \label{tab:naive-vs-agentic-tradeoffs}
+\end{table}
