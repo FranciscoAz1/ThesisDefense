@@ -174,11 +174,11 @@
 \begin{frame}{Problem: Example Scenario}
 	\textbf{Example Timeline}
 \begin{itemize}
-  \item Jan: Russia declared war on Ukraine (report A)
-  \item Mar: Russia and Ukraine agreed on a ceasefire (doc B)
-  \item Apr Query: ``How is the war in Ukraine?'' % chktex 38 allow
+  \item Jan: Conflict escalation reported (doc A)
+  \item Mar: Ceasefire agreement reached (doc B)
+  \item Apr Query: ``What is the current status of the War in Ukraine?'' % chktex 38 allow
 \end{itemize}
-	\textbf{Risk:} Retrieves A, ignores B..
+\textbf{Risk:} Retrieves A, ignores B.
 \vspace{0.4em} \\
 	\textbf{Core Challenge:} Capture and reason over document dependencies.
 \end{frame}
@@ -188,6 +188,8 @@
   \item Current search methods don't account for information interdependencies
   \item GraphRAG ideas emerging; enterprise schemas underused
 \end{itemize}
+\vspace{0.3em}
+\textbf{Conclusion:} Need interdependency-aware, structure-guided retrieval.
 \end{frame}
 
 \section{Objectives}
@@ -198,8 +200,8 @@
   \item \textbf{Detect} updates / contradictions across documents
   \item \textbf{Enterprise Ready:}
   \begin{itemize}
-      \item \textbf{Standardize} easy to implement solution in current emerging frameworks
-      \item \textbf{Scalability} Work with highly scalable repositories of information
+      \item \textbf{Standardize} solution in emerging frameworks
+      \item \textbf{Scale} to large information repositories
   \end{itemize}
   \item \textbf{Evaluate}: Evaluate efficiency, and quality of solutions
 \end{itemize}
@@ -226,7 +228,7 @@ We developed 3 independent components for each step in document processing
 \vspace{0.3em}
 \end{frame}
 
-\begin{frame}{Knowledge graph construction}
+\begin{frame}{Knowledge Graph Construction}
 \begin{enumerate}
   \item Extract entities and relationships
   \item Merge nodes with matching entities
@@ -240,8 +242,8 @@ We developed 3 independent components for each step in document processing
 \begin{frame}{Query Techniques}
 The query techniques go from the one of least latency to highest latency
 \begin{enumerate}
-    \item Semantic, bm25 and hybrid queries
-    \item query reformulation (Extract entities and relationships from query) for graph retrieval
+  \item Semantic, BM25, and hybrid queries
+  \item Query reformulation (extract entities and relations from query) for graph retrieval
     \item ReAct (Agent) queries using MCP server
 \end{enumerate}
 \centering
@@ -250,20 +252,28 @@ The query techniques go from the one of least latency to highest latency
 
 \begin{frame}{Agent Configuration}
 \begin{enumerate}
-  \item Instructed to be a document assistant, connected to a weaviate database, where it should base all of it's answers. And answer in a concise way with sources of information.
-  \item Tools to a MCP server, that handles communication from the Agent (natural language) to the weaviate server (graphQL)
+  \item Instructed to be a document assistant connected to a Weaviate database; answers are concise and grounded with sources.
+  \item Tools via an MCP server that translate agent requests (natural language) to valid GraphQL over the schema.
+  \item And descriptions of collections to guide collection selection.
 \end{enumerate}
 \end{frame}
 
 \begin{frame}{MCP Server (Weaviate Bridge)}
-Valuable communications
+\textbf{Context:} Agent–database communication layer \\
+\vspace{0.4em}
+\textbf{Core Point:} Enables schema-aware, validated queries for agentic retrieval
 \begin{itemize}
-  \item Standard tool interface for agents
-  \item Validated schema-aware queries
-  \item Tools: weaviate-query, weaviate-origin, weaviate-follow-ref
+  \item \textbf{Standard tool interface} for agents
+  \item \textbf{Schema validation} for queries
+  \item \textbf{Key tools:}
+    \begin{itemize}
+      \item weaviate-query: hybrid search and direct object retrieval
+      \item weaviate-origin: return object with appended references context
+      \item weaviate-follow-ref: follow one-hop references and return referenced objects
+    \end{itemize}
 \end{itemize}
-weviate-origin appends the weaviate object to the LLM with references of that object, described by the relationship
-weaviate-follow-ref is used for querying by following references of an object, and then doing the same weaviate-origin. Enabling agentic graph traversal.
+\vspace{0.4em}
+\textbf{Conclusion:} Enables agentic graph traversal and reliable, context-grounded answers
 \end{frame}
 
 \section{Evaluation and Results}
@@ -276,13 +286,29 @@ weaviate-follow-ref is used for querying by following references of an object, a
 \end{itemize}
 \end{frame}
 
-\begin{frame}{MiniRag Interdependencies}
-Comparing MiniRaG to naive RAG with the new models, we tested with the same benchmark tested in MiniRAG both solutions, and control was the same as the results on the page on github. The score for naive RAG was the same, but for MiniRAG was lower. Which we conclude that using a light model such as Qwen2.5-3B doesn't bring good results. Althought the benchmarks in the page show that using gpt-4o-mini the results were 68.43 \%. Which even if inflated proves to capture temporal dependency through LLM Profiling.
-My results token recall 44 \% Naive RAG,  38\% mini, 27\% light
-Whereas the benchmark had 43 \%  Naive RAG, and light 39 \% and MiniRAG  49 \%. We see a 11 \% inflation in miniRAG, and the highest score using a reasoning model was 54 \% and mini a 68 \%. The difference between naive and mini increases with the model. Meaning this method could be good but expensive with a better model. For the lack of funding in this thesis we didn't test this model.
+\begin{frame}{MiniRAG Interdependencies}
+	\textbf{Temporal QA Setting:} Dataset encodes time-stamped / evolving facts; correctness depends on capturing updates and supersessions (interdependent information). \\
+\vspace{0.4em}
+	\textbf{Objective:} Assess whether MiniRAG's profiling + relational reasoning improves Token Recall (temporal factual accuracy) over naive single-pass RAG. \\
+\vspace{0.6em}
+	\textbf{Token Recall (Temporal QA Benchmark)}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+System & Benchmark & Thesis (Qwen2.5-3B) \\
+\hline
+Naive RAG & 43\% & 44\% \\
+MiniRAG & 49\% & 38\% \\
+MiniRAG (gpt-4o-mini)* & 54\% & -- \\
+MiniRAG Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
+\hline
+\end{tabular}
+\end{center}
+\vspace{0.3em}
+\footnote{Benchmarking with larger reasoning models was not performed due to prohibitive computational costs relative to expected benefits.}
+\normalsize
+\vspace{0.4em}
 \end{frame}
-
-    
 
 \begin{frame}{Does the model matter?}
 \textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
@@ -293,7 +319,7 @@ Whereas the benchmark had 43 \%  Naive RAG, and light 39 \% and MiniRAG  49 \%. 
 \end{frame}
 
 \begin{frame}{Multi-Collection Retrieval}
-Agentic ReAct across multiple collections, shows improvements because of the use of more curated descriptions of the collections which guided the agent to make a more informed semantic query
+Agentic ReAct across multiple collections shows improvements due to curated collection descriptions that guide more informed semantic queries.
 \begin{itemize}
   \item Correct collection selection
   \item 2--3$\times$ improvement across strategies
@@ -305,14 +331,14 @@ Agentic ReAct across multiple collections, shows improvements because of the use
 \end{frame}
 
 \begin{frame}{Summarization, compressing storage}
-Optimization's by choosing the most relevant text, actually improves the retrieval by reducing noise of information going to the database.
+Optimizations that select the most relevant text improve retrieval by reducing noise stored in the database.
 \begin{table}[t]
 \centering
 \caption{Document retrieval and summarization metrics}
 \label{tab:document_retrieved_metrics_summarization}
 \begin{tabular}{lrrr}
 \hline
-Approach & Retrieval & token recall & jaccard \\
+Approach & Retrieval & Token Recall & Jaccard \\
 \hline
 Agentic ReAct (GPT-5)& 60.4\% & 61.1\%  & 55.7\%\\
 LexRank & 33.6\% & 29.5\%  & 35.9\% \\
@@ -321,20 +347,24 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 \hline
 \end{tabular}
 \end{table}
-Using Youden's thresholds
+\footnotesize Using Youden's J thresholds for classification boundaries.
 \end{frame}
 
 \begin{frame}{Integration for Edoclink's workflow organization}
-    We experiment a use case where we use weaviate's cross-references in a general company workflow. In this implementation there are rules for putting document's into the database. And we show a use-case that it is used agentic multi-hop through queries to jump through a graph organized database.
-    The agent's identifies flows, and navigate's through them reasoning on disperse information. 
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.5\linewidth]{image.png}
-        \caption{Figure shows the flow of the agent to find information about the question How is the War on Russia and Ukraine?}
-        \label{fig:placeholder}
-    \end{figure}
-    The agent's searches decides to search the files, then the stages, then the flux and then the entities. Giving a fully informed and grounded answer. This enables to store information in snippets, and trusting the agent's reasoning to find information with discovery. Instead of feeding very large documents hoping it finds the needed information, and the information is in the documents. Which due to limited context and context drift in agent's it is not recommended.
+\begin{itemize}
+  \item Use Weaviate cross-references in a workflow-organized company database.
+  \item Enforce ingestion rules for graph consistency and provenance.
+  \item Agent performs multi-hop queries: files $\rightarrow$ stages $\rightarrow$ flows $\rightarrow$ entities.
+  \item Store information in focused snippets for robust retrieval within context limits.
+\end{itemize}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{image.png}
+  \caption{Agent path over cross-referenced workflow to answer a question. "How is the war on Russia and Ukraine?"}
+  \label{fig:workflow_agent_path}
+\end{figure}
 \end{frame}
+ 
 
 \begin{frame}{Final Answer}
     Final answer. It remains an active, violent conflict. \\
@@ -343,7 +373,7 @@ Using Youden's thresholds
     “Drone attack hits military base”. \\
     • Excerpt: “A drone strike has reportedly destroyed parts of a military base near the front. Witnesses 
     describe significant damage and casualties.” \\
-    Interpretation.
+    \textbf{ Interpretation.}
     • Continued strikes on military targets near the front and ongoing casualties, involving both Russia
     and Ukraine as the referenced entities
 \end{frame}
@@ -351,12 +381,10 @@ Using Youden's thresholds
 \section{Related Work}
 \begin{frame}{Related Work:}
 \begin{itemize}
-  \item Google NotebookLM : focuses on a personal, source-grounded assistant over curated notes and
-documents, producing footnoted syntheses and study guides
-  \item Perplexity AI : provides web-grounded conversational search with inline citations and multi-document
-aggregatio
+  \item Google NotebookLM: personal, source-grounded assistant over curated notes; footnoted syntheses and study guides
+  \item Perplexity AI: web-grounded conversational search with inline citations and multi-document aggregation
   \item Vector databases : Weaviate, Qdrant, and Milvus.
-  \item Multi Hop Agentic Retrieval : semi-structured enterprise information, in ruled workflow configurations. Found in platform's such as Edoclink.
+  \item Multi-Hop Agentic Retrieval: semi-structured enterprise information in ruled workflow configurations (e.g., Edoclink)
 \end{itemize}
 \end{frame}
 
@@ -371,21 +399,11 @@ aggregatio
 
 \section{Conclusions and Future Work}
 
-\begin{frame}{Main Contributions}
-\begin{enumerate}
-  \item Formalized enterprise interdependency retrieval problem
-  \item Schema + graph architecture for dynamic updates
-  \item Agentic multi-hop traversal (temporal aware)
-  \item MCP Weaviate server (standardized Weaviate database for interface with Agents)
-  \item Empirical gains (2–4× over baselines)
-\end{enumerate}
-\end{frame}
-
 \begin{frame}{Conclusions}
 \begin{itemize}
   \item \textbf{Graph-aware reasoning}: prevents outdated answers\pause
-  \item \textbf{Temporal ordering}: resolves contradictions\pause
-  \item \textbf{Schema constraints}: reduce hallucination surface\pause
+  \item \textbf{Structure-aware retrieval}: leverages cross-references and metadata for precision\pause % chktex 1 allow
+  \item \textbf{Well-instructed agents}: schema-aware tools guide retrieval and sourcing\pause % chktex 1 allow
   \item \textbf{Tool standardization} enables reproducible agent pipelines
 \end{itemize}
 \end{frame}
@@ -393,20 +411,24 @@ aggregatio
 \begin{frame}{Limitations}
 \begin{itemize}
   \item Scale constrained (compute / budget)
-  \item No public benchmark (construction overhead)
-  \item Residual hallucinations possible
-  \item Need deeper privacy/ACL integration
+  \item No public benchmark for workflow organized information (construction overhead)
+  \item NLP ecosystem is highly dynamic; conclusions are time-bound % chktex 1 allow
+  \item Model and embedding churn can change retrieval behavior % chktex 1 allow
+  \item RAG and agent frameworks evolve; pin versions, datasets, prompts, and eval protocols % chktex 1 allow
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Future Work}
 \begin{itemize}
-  \item Larger-scale graph + incremental updates
+  \item Integration with Edoclink platform, including it's access control layers.
+  \item Beta testing multi-hop agentic retrieval in real-world enterprise settings.
   \item Benchmark release (structure-aware retrieval)
-  \item Multi-agent verification and consistency checks
-  \item Integration with access control layers
-  \item Publication submission (CONF NAME / JOURNAL TBD)
+  \item Cache implementation for latency reduction in multi-hop retrieval
+  \item Agentic Workflows (e.g, better Graph RAG, Relevant/Outdated information management, chatbot memory)
+  \item More MCP for other applications
 \end{itemize}
+
+
 \end{frame}
 
 \begin{frame}{Thank You}

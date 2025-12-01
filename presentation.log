@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.10)  30 NOV 2025 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.10)  30 NOV 2025 19:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -571,16 +571,7 @@ Package textpos Info: choosing support for LaTeX3 on input line 60.
 Grid set 16 x 16 = 22.7622pt x 17.07166pt
 \TPboxrulesize=\dimen306
 \TP@tbargs=\toks48
-)
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 86.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 86.
-
-(C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count358
 ) (presentation.aux)
@@ -765,7 +756,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 168.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 180.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 172.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -774,7 +765,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 180.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 201.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 184.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -783,7 +774,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 201.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 213.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 193.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -792,7 +783,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 213.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 218.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 208.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -801,14 +792,23 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 218.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 228.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 218.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [9
 
 ]
-<Images/Fluxograma_Data_Processing_Pipeline.jpeg, id=145, 779.5524pt x 276.0714pt>
+File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
+<use figures/IST_A_gray_bg_crop.jpg>
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 229.
+(pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
+
+
+[10
+
+]
+<Images/Fluxograma_Data_Processing_Pipeline.jpeg, id=156, 779.5524pt x 276.0714pt>
 File: Images/Fluxograma_Data_Processing_Pipeline.jpeg Graphic file (type jpg)
 <use Images/Fluxograma_Data_Processing_Pipeline.jpeg>
 Package pdftex.def Info: Images/Fluxograma_Data_Processing_Pipeline.jpeg  used on input line 240.
@@ -819,134 +819,128 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 240.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
-[10
-
- <./Images/Fluxograma_Data_Processing_Pipeline.jpeg>]
-<Images/Classe UML.png, id=155, 434.1018pt x 240.6591pt>
-File: Images/Classe UML.png Graphic file (type png)
-<use Images/Classe UML.png>
-Package pdftex.def Info: Images/Classe UML.png  used on input line 253.
-(pdftex.def)             Requested size: 192.23909pt x 106.57335pt.
-File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
-<use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 253.
-(pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
-
-
 [11
 
- <./Images/Classe UML.png>]
-<Images/graph_visualisation_big.png, id=166, 669.50125pt x 498.86375pt>
-File: Images/graph_visualisation_big.png Graphic file (type png)
-<use Images/graph_visualisation_big.png>
-Package pdftex.def Info: Images/graph_visualisation_big.png  used on input line 265.
-(pdftex.def)             Requested size: 160.19762pt x 119.36436pt.
+ <./Images/Fluxograma_Data_Processing_Pipeline.jpeg>]
+<Images/Fluxograma_Mini_Query.jpeg, id=166, 598.8774pt x 351.4731pt>
+File: Images/Fluxograma_Mini_Query.jpeg Graphic file (type jpg)
+<use Images/Fluxograma_Mini_Query.jpeg>
+Package pdftex.def Info: Images/Fluxograma_Mini_Query.jpeg  used on input line 251.
+(pdftex.def)             Requested size: 192.23909pt x 112.82228pt.
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 265.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 251.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [12
 
- <./Images/graph_visualisation_big.png>]
-<Images/Fluxograma_Mini_Query.jpeg, id=178, 598.8774pt x 351.4731pt>
-File: Images/Fluxograma_Mini_Query.jpeg Graphic file (type jpg)
-<use Images/Fluxograma_Mini_Query.jpeg>
-Package pdftex.def Info: Images/Fluxograma_Mini_Query.jpeg  used on input line 276.
-(pdftex.def)             Requested size: 192.23909pt x 112.82228pt.
+ <./Images/Fluxograma_Mini_Query.jpeg>]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 276.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 259.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [13
 
- <./Images/Fluxograma_Mini_Query.jpeg>]
-<Images/Sequence-diagram-Weaviate-Query.png, id=189, 1034.86626pt x 780.9175pt>
-File: Images/Sequence-diagram-Weaviate-Query.png Graphic file (type png)
-<use Images/Sequence-diagram-Weaviate-Query.png>
-Package pdftex.def Info: Images/Sequence-diagram-Weaviate-Query.png  used on input line 286.
-(pdftex.def)             Requested size: 176.21835pt x 132.9687pt.
+]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 286.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 277.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [14
 
- <./Images/Sequence-diagram-Weaviate-Query.png>]
+]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 296.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 287.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [15
 
 ]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 311.
+ (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 311.
+ (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 311.
+ (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
+Overfull \hbox (27.05675pt too wide) in paragraph at lines 311--311
+ [] 
+ []
+
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 307.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 311.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
+
+Overfull \vbox (9.13467pt too high) detected at line 311
+ []
+
 
 
 [16
 
-]
+] (tables_and_code/table_doc_retrieved_comparison.tex
+Overfull \hbox (4.89934pt too wide) in paragraph at lines 3--12
+ [] 
+ []
+
+)
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 316.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 319.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [17
 
-]
+] (tables_and_code/table_documents_mixed.tex)
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 326.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 331.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [18
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 335.
- (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 335.
- (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 335.
- (C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-) (tables_and_code/table_document_retrieved_metrics.tex)
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 335.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 351.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [19
 
-] (tables_and_code/table_documents_mixed.tex)
+]
+<image.png, id=246, 637.38126pt x 254.45062pt>
+File: image.png Graphic file (type png)
+<use image.png>
+Package pdftex.def Info: image.png  used on input line 366.
+(pdftex.def)             Requested size: 192.23909pt x 76.74344pt.
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 347.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 366.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [20
 
-]
+ <./image.png>]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 355.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 379.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -955,7 +949,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 355.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 367.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 389.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -964,7 +958,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 367.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 398.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -973,7 +967,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 409.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -982,7 +976,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 409.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -991,7 +985,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 409.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -1000,7 +994,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 376.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 385.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 409.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -1009,7 +1003,7 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 385.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 395.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 419.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
@@ -1018,11 +1012,20 @@ Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 395.
 ]
 File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
 <use figures/IST_A_gray_bg_crop.jpg>
-Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 406.
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 432.
 (pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
 
 
 [29
+
+]
+File: figures/IST_A_gray_bg_crop.jpg Graphic file (type jpg)
+<use figures/IST_A_gray_bg_crop.jpg>
+Package pdftex.def Info: figures/IST_A_gray_bg_crop.jpg  used on input line 443.
+(pdftex.def)             Requested size: 44.4075pt x 19.91692pt.
+
+
+[30
 
 ]
 \tf@nav=\write6
@@ -1040,20 +1043,20 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 0EA37B6DD14F48C45ABA24ADFFBE5155;966.
+(rerunfilecheck)             Checksum: 6C55F9A09FC77CF408C9965CDEE5C220;966.
  ) 
 Here is how much of TeX's memory you used:
- 22247 strings out of 468130
- 440260 string characters out of 5424788
- 804703 words of memory out of 5000000
- 50317 multiletter control sequences out of 15000+600000
- 641068 words of font info for 84 fonts, out of 8000000 for 9000
+ 22315 strings out of 468130
+ 441669 string characters out of 5424788
+ 805186 words of memory out of 5000000
+ 50376 multiletter control sequences out of 15000+600000
+ 644344 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,492b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,493b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Francisco Azeredo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk> <C:\Users\Francisco Azeredo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1000.pk><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on presentation.pdf (29 pages, 1218066 bytes).
+Output written on presentation.pdf (30 pages, 1050381 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 224 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
 

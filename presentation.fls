@@ -383,6 +383,11 @@ INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
@@ -402,28 +407,6 @@ INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\Images\Classe UML.png
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\Images\graph_visualisation_big.png
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
@@ -431,21 +414,6 @@ INPUT .\Images\Fluxograma_Mini_Query.jpeg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
 INPUT .\Images\Fluxograma_Mini_Query.jpeg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\Images\Sequence-diagram-Weaviate-Query.png
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
@@ -501,10 +469,26 @@ INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\
 INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssxi10.tfm
 INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssxi8.tfm
 INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssxi8.tfm
-INPUT .\tables_and_code\table_document_retrieved_metrics.tex
-INPUT .\tables_and_code\table_document_retrieved_metrics.tex
-INPUT tables_and_code\table_document_retrieved_metrics.tex
 INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss9.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssi8.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmmib5.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\sansmathaccent\mathkerncmssxi8.tfm
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\tables_and_code\table_doc_retrieved_comparison.tex
+INPUT .\tables_and_code\table_doc_retrieved_comparison.tex
+INPUT .\tables_and_code\table_doc_retrieved_comparison.tex
+INPUT .\tables_and_code\table_doc_retrieved_comparison.tex
+INPUT tables_and_code\table_doc_retrieved_comparison.tex
+INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcss1095.tfm
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
@@ -520,7 +504,25 @@ INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
-INPUT C:\Users\Francisco Azeredo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcss1095.tfm
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\image.png
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
+INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
 INPUT .\figures\IST_A_gray_bg_crop.jpg
