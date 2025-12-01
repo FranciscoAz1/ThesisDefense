@@ -137,6 +137,25 @@
 \end{frame}
 
 \section{Motivation and Problem}
+\begin{frame}{Problem Illustration}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Captura de ecrã 2025-12-01 155025.png}
+    \label{fig:placeholder}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Problem: Example Scenario}
+	\textbf{Example Timeline}
+\begin{itemize}
+  \item Jan: Conflict escalation reported (doc A)
+  \item Mar: Ceasefire agreement reached (doc B)
+  \item Apr Query: ``What is the current status of the War in Ukraine?'' % chktex 38 allow
+\end{itemize}
+\textbf{Risk:} Retrieves A, ignores B.
+\vspace{0.4em} \\
+	\textbf{Core Challenge:} Capture and reason over document dependencies.
+\end{frame}
 
 \begin{frame}{Enterprise Information Challenges}
 \textbf{Critical Business Context:}
@@ -164,33 +183,21 @@
   \item Used in public sector and enterprises with rich, complex processes
 \end{itemize}
 \vspace{0.4em}
+\end{frame}
+
+
+
+\begin{frame}{Edoclink workflow illustration}
+\begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/edockling documents.png}
+        \caption{Enter Caption}
+        \label{fig:placeholder}
+\end{figure}
+
 \textbf{Thesis Opportunity:} Leverage this rich structure to enhance semantic search and retrieval accuracy.
 \end{frame}
-\begin{frame}{Problem Illustration}
-    put this image
-    https://www.bbc.com/news/war-in-ukraine
-\end{frame}
 
-\begin{frame}{Problem: Example Scenario}
-	\textbf{Example Timeline}
-\begin{itemize}
-  \item Jan: Conflict escalation reported (doc A)
-  \item Mar: Ceasefire agreement reached (doc B)
-  \item Apr Query: ``What is the current status of the War in Ukraine?'' % chktex 38 allow
-\end{itemize}
-\textbf{Risk:} Retrieves A, ignores B.
-\vspace{0.4em} \\
-	\textbf{Core Challenge:} Capture and reason over document dependencies.
-\end{frame}
-
-\begin{frame}{Problem}
-\begin{itemize}
-  \item Current search methods don't account for information interdependencies
-  \item GraphRAG ideas emerging; enterprise schemas underused
-\end{itemize}
-\vspace{0.3em}
-\textbf{Conclusion:} Need interdependency-aware, structure-guided retrieval.
-\end{frame}
 
 \section{Objectives}
 
@@ -252,9 +259,8 @@ The query techniques go from the one of least latency to highest latency
 
 \begin{frame}{Agent Configuration}
 \begin{enumerate}
-  \item Instructed to be a document assistant connected to a Weaviate database; answers are concise and grounded with sources.
-  \item Tools via an MCP server that translate agent requests (natural language) to valid GraphQL over the schema.
-  \item And descriptions of collections to guide collection selection.
+  \item \textbf{Instructions:} Instructed to be a document assistant connected to a Weaviate database; answers are concise and grounded with sources.
+  \item \textbf{Tools} Tools via an MCP server that translate agent requests (natural language) to valid GraphQL over the schema.
 \end{enumerate}
 \end{frame}
 
@@ -341,8 +347,8 @@ Optimizations that select the most relevant text improve retrieval by reducing n
 Approach & Retrieval & Token Recall & Jaccard \\
 \hline
 Agentic ReAct (GPT-5)& 60.4\% & 61.1\%  & 55.7\%\\
-LexRank & 33.6\% & 29.5\%  & 35.9\% \\
-BART & 17.8\% & 3.0\% & 11.1\% \\
+Naive RAG (LexRank) & 33.6\% & 29.5\%  & 35.9\% \\
+Naive RAG (BART) & 17.8\% & 3.0\% & 11.1\% \\
 Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 \hline
 \end{tabular}
@@ -384,12 +390,12 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
   \item Google NotebookLM: personal, source-grounded assistant over curated notes; footnoted syntheses and study guides
   \item Perplexity AI: web-grounded conversational search with inline citations and multi-document aggregation
   \item Vector databases : Weaviate, Qdrant, and Milvus.
-  \item Multi-Hop Agentic Retrieval: semi-structured enterprise information in ruled workflow configurations (e.g., Edoclink)
+
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Comparison to Prior Approaches}
-    My solution Multi Hop Agentic Retrieval.
+    My solution is a Multi-Hop Agentic Retrieval: semi-structured enterprise information in ruled workflow configurations (e.g., Edoclink)
 \begin{itemize}
   \item Integrates schema-driven traversal
   \item Standardizes graph access (MCP server)
@@ -425,10 +431,8 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
   \item Benchmark release (structure-aware retrieval)
   \item Cache implementation for latency reduction in multi-hop retrieval
   \item Agentic Workflows (e.g, better Graph RAG, Relevant/Outdated information management, chatbot memory)
-  \item More MCP for other applications
+  \item More MCP for other applications (as LLMs can understand us and computer's too)
 \end{itemize}
-
-
 \end{frame}
 
 \begin{frame}{Thank You}
