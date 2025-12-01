@@ -3,7 +3,7 @@
 
 **Presenter:** Francisco Azeredo  
 **Date:** Defense Presentation  
-**Total Duration:** ~20-25 minutes (adjust per slide timing)
+**Total Duration:** less than 20 minutes (adjust per slide timing)
 
 ---
 
