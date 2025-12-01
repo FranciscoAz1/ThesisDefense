@@ -154,47 +154,45 @@
 \end{itemize}
 \textbf{Risk:} Retrieves A, ignores B.
 \vspace{0.4em} \\
-	\textbf{Core Challenge:} Capture and reason over document dependencies.
+	\textbf{Core Challenge:} Capture and reason over information interdependencies.
 \end{frame}
 
 \begin{frame}{Enterprise Information Challenges}
 \textbf{Critical Business Context:}
 \begin{itemize}
-  \item Enterprises rely on \textit{accurate, current} information for project approvals, compliance decisions, and operational governance
-  \item \textbf{High-stakes work}: Incorrect or outdated information can lead to regulatory violations, project failures, or financial losses
+  \item Decisions require accurate, current information
+  \item \textbf{High stakes}: compliance, approvals, financial risk
 \end{itemize}
 \vspace{0.3em}
 \textbf{Current Problems:}
 \begin{itemize}
-  \item Professionals spend significant time searching, reading, and analyzing multiple documents
-  \item Manual verification of document dependencies creates \textbf{high cognitive load}
-  \item Decisions risk relying on superseded or nullified information
-  \item \textbf{Even modern semantic search systems fail} in critical situations—they cannot guarantee information currency or detect contradictions
+  \item Time spent searching and reading
+  \item Manual dependency checks = \textbf{high cognitive load}
+  \item Reliance on superseded information
+  \item \textbf{Modern semantic search fails} to ensure currency/contradictions
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Context: Edoclink Enterprise}
 \textbf{Document Management Platform:}
 \begin{itemize}
-  \item Organizes documents with structured workflows and business rules
+  \item Workflow-driven lifecycle and business rules
   \item Supports evolution from ad-hoc to complex workflow configurations
-  \item Enables end-to-end process automation and digitalization
-  \item Features: document lifecycle management, collaborative work, ERP integration
-  \item Used in public sector and enterprises with rich, complex processes
+  \item End-to-end automation and digitalization
+  \item Features:document lifecycle management, collaboration, ERP integration
+  \item Deployed in public sector and enterprises
 \end{itemize}
 \vspace{0.4em}
 \end{frame}
 
 
 
-\begin{frame}{Edoclink workflow illustration}
+\begin{frame}{Edoclink Workflow Illustration}
 \begin{figure}
         \centering
-        \includegraphics[width=1\linewidth]{Images/edockling documents.png}
-        \caption{Enter Caption}
+  \includegraphics[width=0.75\linewidth]{Images/edockling documents.png}
         \label{fig:placeholder}
 \end{figure}
-
 \textbf{Thesis Opportunity:} Leverage this rich structure to enhance semantic search and retrieval accuracy.
 \end{frame}
 
@@ -203,14 +201,14 @@
 
 \begin{frame}{Objectives Overview}
 \begin{itemize}
-  \item \textbf{Represent} enterprise document structure and relations
-  \item \textbf{Detect} updates / contradictions across documents
-  \item \textbf{Enterprise Ready:}
+  \item \textbf{Represent}: enterprise structure and cross-references
+  \item \textbf{Detect}: updates and contradictions
+  \item \textbf{Enterprise-ready}:
   \begin{itemize}
-      \item \textbf{Standardize} solution in emerging frameworks
-      \item \textbf{Scale} to large information repositories
+      \item \textbf{Standardize}: emerging frameworks (MCP)
+      \item \textbf{Scale}: large repositories
   \end{itemize}
-  \item \textbf{Evaluate}: Evaluate efficiency, and quality of solutions
+  \item \textbf{Evaluate}: efficiency and quality
 \end{itemize}
 \end{frame}
 %% Possibly remove
@@ -226,7 +224,7 @@
 
 \section{Architecture and Components}
 \begin{frame}{Architecture Overview}
-We developed 3 independent components for each step in document processing
+Three independent components across the pipeline:
 \begin{enumerate}
   \item Insertion/Index (Automatic Knowledge Graph construction)
   \item Query (Query techniques, some that take better advantage of the graph)
@@ -237,7 +235,7 @@ We developed 3 independent components for each step in document processing
 
 \begin{frame}{Knowledge Graph Construction}
 \begin{enumerate}
-  \item Extract entities and relationships
+  \item Extract entities and cross-references
   \item Merge nodes with matching entities
   \item Store in a graph
 \end{enumerate}
@@ -247,11 +245,11 @@ We developed 3 independent components for each step in document processing
 \end{frame}
 
 \begin{frame}{Query Techniques}
-The query techniques go from the one of least latency to highest latency
+From lowest to highest latency:
 \begin{enumerate}
   \item Semantic, BM25, and hybrid queries
-  \item Query reformulation (extract entities and relations from query) for graph retrieval
-    \item ReAct (Agent) queries using MCP server
+  \item Query reformulation (entities/relations) for graph retrieval
+  \item ReAct (Agent) via MCP server
 \end{enumerate}
 \centering
 \includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
@@ -259,12 +257,12 @@ The query techniques go from the one of least latency to highest latency
 
 \begin{frame}{Agent Configuration}
 \begin{enumerate}
-  \item \textbf{Instructions:} Instructed to be a document assistant connected to a Weaviate database; answers are concise and grounded with sources.
-  \item \textbf{Tools} Tools via an MCP server that translate agent requests (natural language) to valid GraphQL over the schema.
+  \item \textbf{Instructions:} Document search assistant connected to Weaviate; deliver concise, sourced answers.
+  \item \textbf{Tools:} MCP server translating natural language to schema-valid GraphQL.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{MCP Server (Weaviate Bridge)}
+\begin{frame}{Weaviate MCP Server}
 \textbf{Context:} Agent–database communication layer \\
 \vspace{0.4em}
 \textbf{Core Point:} Enables schema-aware, validated queries for agentic retrieval
@@ -293,9 +291,9 @@ The query techniques go from the one of least latency to highest latency
 \end{frame}
 
 \begin{frame}{MiniRAG Interdependencies}
-	\textbf{Temporal QA Setting:} Dataset encodes time-stamped / evolving facts; correctness depends on capturing updates and supersessions (interdependent information). \\
+    \textbf{Temporal QA:} Time-stamped facts; correctness depends on updates/supersessions. \\
 \vspace{0.4em}
-	\textbf{Objective:} Assess whether MiniRAG's profiling + relational reasoning improves Token Recall (temporal factual accuracy) over naive single-pass RAG. \\
+    \textbf{Objective:} Test whether MiniRAG profiling + relations improve Token Recall vs naive single-pass RAG. \\
 \vspace{0.6em}
 	\textbf{Token Recall (Temporal QA Benchmark)}
 \begin{center}
@@ -325,9 +323,9 @@ MiniRAG Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
 \end{frame}
 
 \begin{frame}{Multi-Collection Retrieval}
-Agentic ReAct across multiple collections shows improvements due to curated collection descriptions that guide more informed semantic queries.
+Agentic ReAct benefits from curated collection descriptions that guide semantic queries.
 \begin{itemize}
-  \item Correct collection selection
+  \item More accurate collection selection
   \item 2--3$\times$ improvement across strategies
   \item Robust to format variation
 \end{itemize}
@@ -336,8 +334,8 @@ Agentic ReAct across multiple collections shows improvements due to curated coll
 \end{center}
 \end{frame}
 
-\begin{frame}{Summarization, compressing storage}
-Optimizations that select the most relevant text improve retrieval by reducing noise stored in the database.
+\begin{frame}{Summarization \& Storage}
+Selecting relevant text reduces noise and improves retrieval.
 \begin{table}[t]
 \centering
 \caption{Document retrieval and summarization metrics}
@@ -353,13 +351,13 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 \hline
 \end{tabular}
 \end{table}
-\footnotesize Using Youden's J thresholds for classification boundaries.
+\footnotesize Thresholds via Youden's J statistic.
 \end{frame}
 
-\begin{frame}{Integration for Edoclink's workflow organization}
+\begin{frame}{Edoclink Integration}
 \begin{itemize}
   \item Use Weaviate cross-references in a workflow-organized company database.
-  \item Enforce ingestion rules for graph consistency and provenance.
+  \item Enforce ingestion rules for consistency and provenance.
   \item Agent performs multi-hop queries: files $\rightarrow$ stages $\rightarrow$ flows $\rightarrow$ entities.
   \item Store information in focused snippets for robust retrieval within context limits.
 \end{itemize}
@@ -385,7 +383,7 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 \end{frame}
 
 \section{Related Work}
-\begin{frame}{Related Work:}
+\begin{frame}{Related Work}
 \begin{itemize}
   \item Google NotebookLM: personal, source-grounded assistant over curated notes; footnoted syntheses and study guides
   \item Perplexity AI: web-grounded conversational search with inline citations and multi-document aggregation
@@ -395,7 +393,7 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 \end{frame}
 
 \begin{frame}{Comparison to Prior Approaches}
-    My solution is a Multi-Hop Agentic Retrieval: semi-structured enterprise information in ruled workflow configurations (e.g., Edoclink)
+Multi-hop Agentic RAG for workflow-structured enterprise content (e.g., Edoclink)
 \begin{itemize}
   \item Integrates schema-driven traversal
   \item Standardizes graph access (MCP server)
@@ -426,12 +424,12 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
 
 \begin{frame}{Future Work}
 \begin{itemize}
-  \item Integration with Edoclink platform, including it's access control layers.
-  \item Beta testing multi-hop agentic retrieval in real-world enterprise settings.
-  \item Benchmark release (structure-aware retrieval)
-  \item Cache implementation for latency reduction in multi-hop retrieval
-  \item Agentic Workflows (e.g, better Graph RAG, Relevant/Outdated information management, chatbot memory)
-  \item More MCP for other applications (as LLMs can understand us and computer's too)
+  \item Integrate with Edoclink, including its access controls
+  \item Beta-test multi-hop Agentic RAG in production
+  \item Release structure-aware retrieval benchmark
+  \item Add caching to reduce multi-hop latency
+  \item Agentic workflows: Graph RAG, outdated info handling, memory
+  \item Additional MCP tools for adjacent applications
 \end{itemize}
 \end{frame}
 
