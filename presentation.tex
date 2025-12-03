@@ -129,9 +129,12 @@
 \begin{enumerate}
   \item Motivation and Problem
   \item Objectives
-  \item Architecture and Components
-  \item Related Work (Context)
-  \item Evaluation and Results
+  \item Thesis Work
+  \begin{enumerate}
+      \item Architecture and Components
+      \item Related Work (Context)
+      \item Evaluation and Results
+  \end{enumerate}
   \item Conclusions and Future Work
 \end{enumerate}
 \end{frame}
@@ -201,7 +204,7 @@
 
 \begin{frame}{Objectives Overview}
 \begin{itemize}
-  \item \textbf{Represent}: enterprise structure and cross-references
+  \item \textbf{Represent}: information using Edoclink's structure
   \item \textbf{Detect}: updates and contradictions
   \item \textbf{Enterprise-ready}:
   \begin{itemize}
@@ -211,22 +214,12 @@
   \item \textbf{Evaluate}: efficiency and quality
 \end{itemize}
 \end{frame}
-%% Possibly remove
-\begin{frame}{Objective Details}
-\begin{enumerate}
-  \item Schema design (workflows, entities, metadata)
-  \item Graph construction (entity merging, references)
-  \item Agent traversal (multi-hop, temporal ordering)
-  \item MCP tools (validated queries, follow references)
-  \item Evaluation (retrieval accuracy, answer quality)
-\end{enumerate}
-\end{frame}
 
 \section{Architecture and Components}
 \begin{frame}{Architecture Overview}
 Three independent components across the pipeline:
 \begin{enumerate}
-  \item Insertion/Index (Automatic Knowledge Graph construction)
+  \item \textbf{Insertion/Index} (Automatic Knowledge Graph construction)
   \item Query (Query techniques, some that take better advantage of the graph)
   \item Generation (Context given to Agents or LLMs for a readable output)
 \end{enumerate}
@@ -249,7 +242,7 @@ From lowest to highest latency:
 \begin{enumerate}
   \item Semantic, BM25, and hybrid queries
   \item Query reformulation (entities/relations) for graph retrieval
-  \item ReAct (Agent) via MCP server
+  \item ReAct (Agent) via MCP server <- image
 \end{enumerate}
 \centering
 \includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
@@ -304,7 +297,7 @@ System & Benchmark & Thesis (Qwen2.5-3B) \\
 Naive RAG & 43\% & 44\% \\
 MiniRAG & 49\% & 38\% \\
 MiniRAG (gpt-4o-mini)* & 54\% & -- \\
-MiniRAG Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
+Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
 \hline
 \end{tabular}
 \end{center}
@@ -314,20 +307,21 @@ MiniRAG Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
 \vspace{0.4em}
 \end{frame}
 
-\begin{frame}{Does the model matter?}
+\begin{frame}{RAG generation}
 \textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
 \vspace{0.3em}
 \begin{center}
   \input{tables_and_code/table_doc_retrieved_comparison}
 \end{center}
+\footnotesize Thresholds via Youden's J statistic.
 \end{frame}
 
 \begin{frame}{Multi-Collection Retrieval}
 Agentic ReAct benefits from curated collection descriptions that guide semantic queries.
 \begin{itemize}
   \item More accurate collection selection
-  \item 2--3$\times$ improvement across strategies
-  \item Robust to format variation
+  \item Improvement in agent query reformulation
+  \item More accurate hybrid search
 \end{itemize}
 \begin{center}
   \input{tables_and_code/table_documents_mixed.tex}
@@ -388,7 +382,7 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
   \item Google NotebookLM: personal, source-grounded assistant over curated notes; footnoted syntheses and study guides
   \item Perplexity AI: web-grounded conversational search with inline citations and multi-document aggregation
   \item Vector databases : Weaviate, Qdrant, and Milvus.
-
+ Put slides in table
 \end{itemize}
 \end{frame}
 
@@ -405,10 +399,9 @@ Multi-hop Agentic RAG for workflow-structured enterprise content (e.g., Edoclink
 
 \begin{frame}{Conclusions}
 \begin{itemize}
-  \item \textbf{Graph-aware reasoning}: prevents outdated answers\pause
-  \item \textbf{Structure-aware retrieval}: leverages cross-references and metadata for precision\pause % chktex 1 allow
+  \item \textbf{Graph-aware reasoning}: Moderately prevents outdated answer\pause
+  \item \textbf{Structure-aware retrieval}: leverages cross-references for reasoned traversal\pause % chktex 1 allow
   \item \textbf{Well-instructed agents}: schema-aware tools guide retrieval and sourcing\pause % chktex 1 allow
-  \item \textbf{Tool standardization} enables reproducible agent pipelines
 \end{itemize}
 \end{frame}
 
@@ -435,7 +428,8 @@ Multi-hop Agentic RAG for workflow-structured enterprise content (e.g., Edoclink
 
 \begin{frame}{Thank You}
 \begin{center}
-  \begin{block}{\LARGE Thank you!}
+  \begin{block}
+    {\LARGE Thank you!}
   \end{block}
   \vspace{1em}
   Francisco Azeredo\\
