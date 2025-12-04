@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764616099.83842 "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" "presentation.pdf" "presentation" 1764616101.56193 0
+["pdflatex"] 1764860303.41542 "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" "presentation.pdf" "presentation" 1764860305.0653 0
   "C:/Users/Francisco" 1723828429 13145 4354b684c7a1d8d230cc0ebd6a7331b8 ""
   "C:/Users/Francisco Azeredo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1763317298 82686 2381c3433487640bf26aa76a10db7eb2 ""
   "C:/Users/Francisco Azeredo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcss1000.pk" 1763576699 10628 6c035ea55d23e58c2d3ead3702abe5ab ""
@@ -212,7 +212,6 @@
   "C:/Users/Francisco Azeredo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "Captura de ecrã 2025-12-01 155025.png" 1764610922 1726685 96f30a35b3a0c67c5c52369645e01bff ""
   "Images/Fluxograma_Data_Processing_Pipeline.jpeg" 1760139519 131257 f0ca63fa3d005dc043be2e38d2d3d372 ""
-  "Images/Fluxograma_Mini_Query.jpeg" 1760139519 153499 5672088ed12d2c05a9e2981ea11d2936 ""
   "Images/edockling documents.png" 1764610922 1161854 d692d3560d9f11bae8dbd2349e794546 ""
   "beamercolorthemeIST.sty" 1763317281 12111 d26e4255186306e7a890d869439cedae ""
   "beamerfontthemeIST.sty" 1763317281 7333 2b3dd9d565bdc875f0c0f8f35dd3a2ac ""
@@ -220,16 +219,14 @@
   "beamerouterthemeIST.sty" 1763317281 5633 596528dcad48cc2908503692c94a88ae ""
   "beamerthemeIST.sty" 1763317281 1989 5eab73c0b6a5098057927bca2005df3b ""
   "c:/Users/Francisco" 1723828429 13145 4354b684c7a1d8d230cc0ebd6a7331b8 ""
-  "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" 1764616099 17848 94b97d29f74cce68109c8b424b8c704f ""
+  "c:/Users/Francisco Azeredo/OneDrive/Documents/tecnico/5 ano/tese/Powerpoint/Final/presentation.tex" 1764860301 18458 1124f963a1704a75c5910773fb2c89fb ""
   "figures/IST_A_gray_bg_crop.jpg" 1763317281 239124 f914e43e0c4624bc21f54b43fc5f9b29 ""
   "figures/IST_A_white_bg_crop.jpg" 1763317281 263634 0a760d39d608e6d846685b5ff2202b0f ""
-  "image.png" 1764519784 110362 bd7a90f4764911514afce103af8a762f ""
-  "presentation.aux" 1764616101 6984 585955dcc4383e27a1aab99ee5e5d23a "pdflatex"
-  "presentation.nav" 1764616101 3868 b01211d12808815baed3aac98a9129d3 "pdflatex"
-  "presentation.out" 1764616101 966 6c55f9a09fc77cf408c9965cdee5c220 "pdflatex"
-  "presentation.tex" 1764616099 17848 94b97d29f74cce68109c8b424b8c704f ""
-  "tables_and_code/table_doc_retrieved_comparison.tex" 1764531749 504 6d3feae841395fa6d007511b456e0f3f ""
-  "tables_and_code/table_documents_mixed.tex" 1764519784 513 f79cc60babe6f77a686c0cf57771c2fb ""
+  "figures/graphviz.png" 1764860142 156644 c76b734da4fd93d76ee38e856cbe39dc ""
+  "presentation.aux" 1764860304 5988 5f2bff8eafc67980756ecca104953372 "pdflatex"
+  "presentation.nav" 1764860304 3589 adcc0ad203a0001cd61fd78ebbb6b43a "pdflatex"
+  "presentation.out" 1764860304 966 6c55f9a09fc77cf408c9965cdee5c220 "pdflatex"
+  "presentation.tex" 1764860301 18458 1124f963a1704a75c5910773fb2c89fb ""
   (generated)
   "presentation.aux"
   "presentation.log"

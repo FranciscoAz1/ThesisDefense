@@ -1,7 +1,7 @@
 \beamer@sectionintoc {1}{Outline}{2}{0}{1}
 \beamer@sectionintoc {2}{Motivation and Problem}{3}{0}{2}
 \beamer@sectionintoc {3}{Objectives}{8}{0}{3}
-\beamer@sectionintoc {4}{Architecture and Components}{10}{0}{4}
-\beamer@sectionintoc {5}{Evaluation and Results}{15}{0}{5}
-\beamer@sectionintoc {6}{Related Work}{22}{0}{6}
-\beamer@sectionintoc {7}{Conclusions and Future Work}{24}{0}{7}
+\beamer@sectionintoc {4}{Architecture and Components}{9}{0}{4}
+\beamer@sectionintoc {5}{Evaluation and Results}{13}{0}{5}
+\beamer@sectionintoc {6}{Related Work}{19}{0}{6}
+\beamer@sectionintoc {7}{Conclusions and Future Work}{21}{0}{7}

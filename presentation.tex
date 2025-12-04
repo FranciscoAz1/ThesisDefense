@@ -237,16 +237,16 @@ Three independent components across the pipeline:
 \includegraphics[width=0.8\linewidth]{Images/Fluxograma_Data_Processing_Pipeline.jpeg}
 \end{frame}
 
-\begin{frame}{Query Techniques}
-From lowest to highest latency:
-\begin{enumerate}
-  \item Semantic, BM25, and hybrid queries
-  \item Query reformulation (entities/relations) for graph retrieval
-  \item ReAct (Agent) via MCP server <- image
-\end{enumerate}
-\centering
-\includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
-\end{frame}
+% \begin{frame}{Query Techniques}
+% From lowest to highest latency:
+% \begin{enumerate}
+%   \item Semantic, BM25, and hybrid queries
+%   \item Query reformulation (entities/relations) for graph retrieval
+%   \item ReAct (Agent) via MCP server <- image
+% \end{enumerate}
+% \centering
+% \includegraphics[width=0.6\linewidth]{Images/Fluxograma_Mini_Query.jpeg}
+% \end{frame}
 
 \begin{frame}{Agent Configuration}
 \begin{enumerate}
@@ -307,46 +307,46 @@ Multi-Hop (gpt-4o-mini)* & 68.4\% & -- \\
 \vspace{0.4em}
 \end{frame}
 
-\begin{frame}{RAG generation}
-\textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
-\vspace{0.3em}
-\begin{center}
-  \input{tables_and_code/table_doc_retrieved_comparison}
-\end{center}
-\footnotesize Thresholds via Youden's J statistic.
-\end{frame}
+% \begin{frame}{RAG generation}
+% \textbf{Agentic RAG}: 60.4\% retrieval, 61\% correct answers ($\sim$2--4$\times$ over baselines)
+% \vspace{0.3em}
+% \begin{center}
+%   \input{tables_and_code/table_doc_retrieved_comparison}
+% \end{center}
+% \footnotesize Thresholds via Youden's J statistic.
+% \end{frame}
 
-\begin{frame}{Multi-Collection Retrieval}
-Agentic ReAct benefits from curated collection descriptions that guide semantic queries.
-\begin{itemize}
-  \item More accurate collection selection
-  \item Improvement in agent query reformulation
-  \item More accurate hybrid search
-\end{itemize}
-\begin{center}
-  \input{tables_and_code/table_documents_mixed.tex}
-\end{center}
-\end{frame}
+% \begin{frame}{Multi-Collection Retrieval}
+% Agentic ReAct benefits from curated collection descriptions that guide semantic queries.
+% \begin{itemize}
+%   \item More accurate collection selection
+%   \item Improvement in agent query reformulation
+%   \item More accurate hybrid search
+% \end{itemize}
+% \begin{center}
+%   \input{tables_and_code/table_documents_mixed.tex}
+% \end{center}
+% \end{frame}
 
-\begin{frame}{Summarization \& Storage}
-Selecting relevant text reduces noise and improves retrieval.
-\begin{table}[t]
-\centering
-\caption{Document retrieval and summarization metrics}
-\label{tab:document_retrieved_metrics_summarization}
-\begin{tabular}{lrrr}
-\hline
-Approach & Retrieval & Token Recall & Jaccard \\
-\hline
-Agentic ReAct (GPT-5)& 60.4\% & 61.1\%  & 55.7\%\\
-Naive RAG (LexRank) & 33.6\% & 29.5\%  & 35.9\% \\
-Naive RAG (BART) & 17.8\% & 3.0\% & 11.1\% \\
-Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
-\hline
-\end{tabular}
-\end{table}
-\footnotesize Thresholds via Youden's J statistic.
-\end{frame}
+% \begin{frame}{Summarization \& Storage}
+% Selecting relevant text reduces noise and improves retrieval.
+% \begin{table}[t]
+% \centering
+% \caption{Document retrieval and summarization metrics}
+% \label{tab:document_retrieved_metrics_summarization}
+% \begin{tabular}{lrrr}
+% \hline
+% Approach & Retrieval & Token Recall & Jaccard \\
+% \hline
+% Agentic ReAct (GPT-5)& 60.4\% & 61.1\%  & 55.7\%\\
+% Naive RAG (LexRank) & 33.6\% & 29.5\%  & 35.9\% \\
+% Naive RAG (BART) & 17.8\% & 3.0\% & 11.1\% \\
+% Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
+% \hline
+% \end{tabular}
+% \end{table}
+% \footnotesize Thresholds via Youden's J statistic.
+% \end{frame}
 
 \begin{frame}{Edoclink Integration}
 \begin{itemize}
@@ -355,12 +355,12 @@ Naive RAG (Qwen2.5) & 13.8\% & 19.1\% & 22.1\% \\
   \item Agent performs multi-hop queries: files $\rightarrow$ stages $\rightarrow$ flows $\rightarrow$ entities.
   \item Store information in focused snippets for robust retrieval within context limits.
 \end{itemize}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\linewidth]{image.png}
-  \caption{Agent path over cross-referenced workflow to answer a question. "How is the war on Russia and Ukraine?"}
-  \label{fig:workflow_agent_path}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{image.png}
+%   \caption{Agent path over cross-referenced workflow to answer a question. "How is the war on Russia and Ukraine?"}
+%   \label{fig:workflow_agent_path}
+% \end{figure}
 \end{frame}
  \begin{frame}{Structured Reasoning}
      \begin{figure}
